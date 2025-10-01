@@ -1,34 +1,62 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Georgette Mora · Abogada</title>
   <style>
-    body { margin:0; font-family: Arial, sans-serif; line-height:1.6; }
-    nav { background:#004d40; padding:12px; display:flex; gap:16px; justify-content:center; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; }
-    nav a:hover { text-decoration:underline; }
-    .section { padding:60px 20px; }
-    .container { max-width:960px; margin:auto; }
-    .badge { background:#c5a300; color:#fff; padding:4px 10px; border-radius:6px; font-size:14px; }
-    h1,h2,h3 { margin-top:0; }
-    .title { font-size:40px; color:#fff; }
-    .subtitle { font-size:20px; color:#a5d6a7; }
-    .muted { color:#666; }
-    .btn { padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold; }
-    .btn-primary { background:#c5a300; color:#fff; }
-    .btn-outline { border:2px solid #c5a300; color:#c5a300; }
-    .card { border:1px solid #ddd; border-radius:8px; margin-bottom:20px; box-shadow:2px 2px 5px rgba(0,0,0,0.1); }
-    .card-body { padding:20px; }
-    input,textarea { width:100%; padding:10px; margin:6px 0 14px; border:1px solid #ccc; border-radius:6px; }
-    .row { display:flex; gap:12px; }
-    .row div { flex:1; }
-    footer { background:#004d40; color:#fff; text-align:center; padding:20px; }
-    .overlay { background:rgba(0,0,0,0.55); padding:40px 0; }
-    .profile { display:flex; flex-wrap:wrap; gap:20px; align-items:center; }
-    .profile img { width:220px; border-radius:12px; box-shadow:2px 2px 6px rgba(0,0,0,0.3); }
-    .profile-text { flex:1; }
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      line-height:1.6;
+      padding-top:60px; /* espacio por menú fijo */
+    }
+    nav{
+      background:#004d40;
+      padding:12px;
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      position:fixed;
+      top:0; left:0; width:100%;
+      z-index:1000;
+    }
+    nav a{ color:#fff; text-decoration:none; font-weight:bold; }
+    nav a:hover{ text-decoration:underline; }
+    .section{ padding:60px 20px; }
+    .container{ max-width:960px; margin:auto; }
+    .badge{ background:#c5a300; color:#fff; padding:4px 10px; border-radius:6px; font-size:14px; }
+    h1,h2,h3{ margin-top:0; }
+    .title{ font-size:40px; color:#fff; }
+    .subtitle{ font-size:20px; color:#a5d6a7; }
+    .muted{ color:#666; }
+    .btn{ padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold; }
+    .btn-primary{ background:#c5a300; color:#fff; }
+    .btn-outline{ border:2px solid #c5a300; color:#c5a300; }
+    .card{ border:1px solid #ddd; border-radius:8px; margin-bottom:20px; box-shadow:2px 2px 5px rgba(0,0,0,0.1); }
+    .card-body{ padding:20px; background:#fff; }
+    input,textarea{ width:100%; padding:10px; margin:6px 0 14px; border:1px solid #ccc; border-radius:6px; }
+    .row{ display:flex; gap:12px; }
+    .row div{ flex:1; }
+    footer{ background:#004d40; color:#fff; text-align:center; padding:20px; }
+    .overlay{ background:rgba(0,0,0,0.55); padding:40px 0; }
+    .profile{ display:flex; flex-wrap:wrap; gap:20px; align-items:center; }
+    .profile img{ width:220px; border-radius:12px; box-shadow:2px 2px 6px rgba(0,0,0,0.3); }
+    .profile-text{ flex:1; }
+    html{ scroll-behavior:smooth; }
+    section{ scroll-margin-top:72px; }
+    .back-to-top{
+      position:fixed;
+      right:16px; bottom:80px;
+      background:#c5a300; color:#fff;
+      width:44px; height:44px;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      text-decoration:none; font-size:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.18);
+      z-index:999;
+    }
+    .back-to-top:hover{ filter:brightness(1.05); }
   </style>
 </head>
 <body id="top">
@@ -43,7 +71,7 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <!-- Encabezado inicial -->
+  <!-- Encabezado -->
   <header style="background:#004d40; height:50vh; display:flex; align-items:center; justify-content:center; text-align:center;">
     <div>
       <h1 class="title">Georgette Mora</h1>
@@ -72,6 +100,7 @@
       <span class="badge">Quién soy</span>
       <h2>Conóceme</h2>
       <div class="profile">
+        <!-- ✅ Aquí debes reemplazar la URL por la de tu foto real -->
         <img src="https://via.placeholder.com/220x280.png?text=Tu+Foto" alt="Georgette Mora">
         <div class="profile-text">
           <p>Soy <strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en tribunales. Me he especializado en causas de familia, penales y civiles, con un enfoque en la defensa de los derechos de mis representados.</p>
@@ -82,30 +111,35 @@
     </div>
   </section>
 
-  <!-- Jurisprudencia -->
+  <!-- Jurisprudencia comentada -->
   <section id="jurisprudencia" class="section">
     <div class="container">
       <span class="badge">Jurisprudencia comentada</span>
       <h2>Análisis de fallos relevantes</h2>
-
       <article class="card">
         <div class="card-body">
           <h3>Procedimiento abreviado y apelación por infracción de derecho</h3>
           <p class="muted">
-            ¿Qué ocurre cuando el imputado acepta los hechos? ¿Significa que no se puede apelar? 
-            Este comentario explica por qué la apelación por infracción de ley sigue siendo una herramienta válida.
+            Comentario al fallo de la <strong>Corte de Apelaciones de Temuco</strong>, Rol N° 1554-2024,
+            que reafirma la posibilidad de apelar en abreviado por infracción de ley.
           </p>
           <p>
-            En Chile, el procedimiento abreviado suele entenderse como un acuerdo en que el imputado acepta los hechos
-            y con ello renuncia a discutir en segunda instancia. Sin embargo, esto no es correcto.
-            <strong>El juez de garantía debe analizar si los hechos y antecedentes configuran el delito imputado</strong>.
-            Si no lo hace, existe infracción de ley y es posible apelar.
+            En Chile, el procedimiento abreviado suele entenderse como un acuerdo en que el imputado acepta los hechos 
+            y con ello renuncia a discutir en segunda instancia. Sin embargo, este caso demuestra lo contrario: 
+            <strong>el juez de garantía tiene el deber de analizar si los hechos y antecedentes fundantes configuran el delito imputado</strong>. 
+            Si ese control no se realiza, existe infracción de ley y procede la apelación.
           </p>
           <ul>
             <li>El abreviado no significa renunciar a discutir derecho.</li>
             <li>La aceptación de hechos no reemplaza el análisis jurídico del tribunal.</li>
             <li>La apelación por infracción de ley es una vía legítima y necesaria.</li>
           </ul>
+          <p>
+            📄 <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb2ZpY2luYWp1ZGljaWFsdmlydHVhbC5wanVkLmNsIiwiYXVkIjoiaHR0cHM6XC9cL29maWNpbmFqdWRpY2lhbHZpcnR1YWwucGp1ZC5jbCIsImlhdCI6MTc1OTM0ODcxMiwiZXhwIjoxNzU5MzUyMzEyLCJkYXRhIjoiQUVCYjVicFVFZms4ZHVTT2xRQ2NkeGhBT1VvRkxPVGdcL3pVS3ZkaFdSXC95cFFvQlVFeTlGXC9LWVNOKzZ2V3JaWDFPR2hKOG85S3RkR0F4b3liM1NtNUtZNjIwZGEwYmJLcWc0Sk5cL2Erd3dqa2ZOMTZOdkpuZFg0K3F2aGJ6VE13ZmJCR3pnd28zbWRrREU4eUFIcVFHdz09In0.zj0h2ZvyhcN88AIulobFgMqZElcAfn0FQcXuQMYtrls" 
+            target="_blank" rel="noopener noreferrer">
+              Ver fallo completo ICA Temuco, Rol N° 1554-2024
+            </a>
+          </p>
         </div>
       </article>
     </div>
@@ -122,7 +156,7 @@
     </div>
   </section>
 
-  <!-- Contacto con fondo Morro -->
+  <!-- Contacto con fondo Morro de Arica -->
   <section id="contacto" class="section" style="background:url('https://upload.wikimedia.org/wikipedia/commons/2/26/Morro_de_Arica.jpg') center/cover no-repeat;">
     <div class="overlay">
       <div class="container" style="color:#fff;">
@@ -151,6 +185,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Botón volver arriba -->
+  <a href="#top" class="back-to-top" aria-label="Volver arriba">↑</a>
 
   <!-- Footer -->
   <footer>
