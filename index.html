@@ -3,116 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgette Mora | Abogada — Defensa en Tribunales de Familia y Penal en Chile</title>
-  <meta name="description" content="Atención legal a nivel nacional. Defensa en Tribunales de Familia (alimentos, cuidado personal, régimen comunicacional) y defensa penal 24/7. Agenda tu consulta con la abogada Georgette Mora.">
-  <link rel="icon" href="/favicon.ico">
+  <title>Georgette Mora · Abogada</title>
   <style>
-    :root{
-      --verde:#0b5d3b; --dorado:#b6872b; --gris:#6b7280; --max:1100px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#111;line-height:1.6}
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
-    header .brand{font-weight:700;color:var(--verde);font-size:20px}
-    nav{margin-top:6px}
-    nav a{margin:0 12px;text-decoration:none;color:#333}
-    nav a:hover{color:var(--verde)}
-    .hero{background:linear-gradient(180deg,#f6fbf8,#fff);padding:64px 0;text-align:center}
-    .hero h1{font-size:clamp(28px,5vw,42px);margin-bottom:12px;color:var(--verde)}
-    .hero p{font-size:18px;color:#333;margin-bottom:20px}
-    .btn{display:inline-block;padding:10px 18px;border-radius:999px;border:1px solid var(--verde);margin:6px;text-decoration:none}
-    .btn-primary{background:var(--verde);color:#fff}
-    .btn-outline{background:#fff;color:var(--verde)}
-    .section{padding:48px 0}
-    .section h2{font-size:26px;margin-bottom:20px;color:var(--verde)}
-    .grid{display:grid;gap:20px}
-    .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{border:1px solid #eee;border-radius:16px;overflow:hidden;background:#fff}
-    .card-body{padding:20px}
-    .badge{font-size:12px;color:#fff;background:var(--dorado);padding:4px 10px;border-radius:999px}
-    .muted{color:var(--gris);font-size:14px}
-    footer{border-top:1px solid #eee;padding:24px;text-align:center;font-size:14px;color:#666}
+    body { margin:0; font-family: Arial, sans-serif; line-height:1.6; }
+    nav { background:#004d40; padding:12px; display:flex; gap:16px; justify-content:center; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    .section { padding:60px 20px; }
+    .container { max-width:960px; margin:auto; }
+    .badge { background:#c5a300; color:#fff; padding:4px 10px; border-radius:6px; font-size:14px; }
+    h1,h2,h3 { margin-top:0; }
+    .title { font-size:40px; color:#fff; }
+    .subtitle { font-size:20px; color:#a5d6a7; }
+    .muted { color:#666; }
+    .btn { padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold; }
+    .btn-primary { background:#c5a300; color:#fff; }
+    .btn-outline { border:2px solid #c5a300; color:#c5a300; }
+    .card { border:1px solid #ddd; border-radius:8px; margin-bottom:20px; box-shadow:2px 2px 5px rgba(0,0,0,0.1); }
+    .card-body { padding:20px; }
+    input,textarea { width:100%; padding:10px; margin:6px 0 14px; border:1px solid #ccc; border-radius:6px; }
+    .row { display:flex; gap:12px; }
+    .row div { flex:1; }
+    footer { background:#004d40; color:#fff; text-align:center; padding:20px; }
+    .overlay { background:rgba(0,0,0,0.55); padding:40px 0; }
+    .profile { display:flex; flex-wrap:wrap; gap:20px; align-items:center; }
+    .profile img { width:220px; border-radius:12px; box-shadow:2px 2px 6px rgba(0,0,0,0.3); }
+    .profile-text { flex:1; }
   </style>
 </head>
-<body>
+<body id="top">
 
-<header>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-    <div class="brand">Georgette Mora · Abogada</div>
-    <nav>
-      <a href="#servicios">Servicios</a>
-      <a href="#jurisprudencia">Jurisprudencia</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </div>
-</header>
+  <!-- Navegación -->
+  <nav>
+    <a href="#top">Inicio</a>
+    <a href="#areas">Áreas de práctica</a>
+    <a href="#quien-soy">Quién soy</a>
+    <a href="#jurisprudencia">Jurisprudencia</a>
+    <a href="#actualidad">Actualidad Legal</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-<section class="hero">
-  <div class="container">
-    <h1>Defensa clara y cercana para decisiones seguras</h1>
-    <p>Atención legal a nivel nacional — especialista en Tribunales de Familia y defensa penal 24/7.</p>
-    <a class="btn btn-primary" href="https://wa.me/56993234860" target="_blank" rel="noreferrer">WhatsApp inmediato</a>
-    <a class="btn btn-outline" href="tel:+56993234860">Llamar</a>
-  </div>
-</section>
-
-<section id="servicios" class="section">
-  <div class="container">
-    <span class="badge">Servicios legales</span>
-    <h2>Especialidades</h2>
-    <div class="grid grid-3">
-      <div class="card"><div class="card-body">
-        <h3>Tribunales de Familia</h3>
-        <p class="muted">Alimentos, cuidado personal, régimen comunicacional, medidas de protección.</p>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <h3>Defensa Penal</h3>
-        <p class="muted">Asistencia en causas penales, querellas, recursos y defensa estratégica.</p>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <h3>Recursos Judiciales</h3>
-        <p class="muted">Apelaciones, amparos, nulidades y recursos de protección.</p>
-      </div></div>
+  <!-- Encabezado inicial -->
+  <header style="background:#004d40; height:50vh; display:flex; align-items:center; justify-content:center; text-align:center;">
+    <div>
+      <h1 class="title">Georgette Mora</h1>
+      <p class="subtitle">Defensa clara y cercana para decisiones seguras</p>
+      <p style="color:#ddd">Atención remota a nivel nacional y presencial en Arica</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="jurisprudencia" class="section">
-  <div class="container">
-    <span class="badge">Análisis práctico</span>
-    <h2>Jurisprudencia comentada</h2>
-    <div class="grid grid-3" style="margin-top:12px">
-      <article class="card"><div class="card-body">
-        <h3>Régimen comunicacional</h3>
-        <p class="muted">Criterios recientes sobre visitas y resguardo del interés superior del niño.</p>
-      </div></article>
-      <article class="card"><div class="card-body">
-        <h3>Alimentos</h3>
-        <p class="muted">Uso de pruebas e indicios económicos para aumento o rebaja de pensión.</p>
-      </div></article>
-      <article class="card"><div class="card-body">
-        <h3>Medidas de protección</h3>
-        <p class="muted">Estándar probatorio y estrategias para solicitar medidas efectivas.</p>
-      </div></article>
+  <!-- Áreas de práctica con fondo Lago Chungará -->
+  <section id="areas" class="section" style="background:url('https://upload.wikimedia.org/wikipedia/commons/c/c8/Lago_Chungar%C3%A1_y_volc%C3%A1n_Parinacota.jpg') center/cover no-repeat;">
+    <div class="overlay">
+      <div class="container" style="color:#fff;">
+        <span class="badge">Áreas de práctica</span>
+        <h2>Cómo puedo ayudarte</h2>
+        <div class="card"><div class="card-body"><h3>Derecho de Familia</h3><p>Alimentos, cuidado personal, relación directa y regular, medidas de protección, divorcios, compensación económica y violencia intrafamiliar.</p></div></div>
+        <div class="card"><div class="card-body"><h3>Derecho Penal</h3><p>Defensa de imputados en todo tipo de delitos, medidas cautelares, recursos y estrategias en procedimientos simplificados y ordinarios.</p></div></div>
+        <div class="card"><div class="card-body"><h3>Derecho Civil</h3><p>Juicios de arrendamiento, precario, reivindicatorios, herencias, contratos y responsabilidad civil.</p></div></div>
+        <div class="card"><div class="card-body"><h3>Recursos Judiciales</h3><p>Redacción y tramitación de recursos de apelación, amparo, protección e inaplicabilidad ante el Tribunal Constitucional.</p></div></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contacto" class="section">
-  <div class="container" style="text-align:center">
-    <span class="badge">Contacto</span>
-    <h2>Agenda tu consulta</h2>
-    <p class="muted">Atención presencial en Arica y modalidad online para todo Chile.</p>
-    <p><strong>Teléfono:</strong> <a href="tel:+56993234860">+56 9 9323 4860</a></p>
-    <p><strong>Email:</strong> <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
-    <a class="btn btn-primary" href="https://wa.me/56993234860" target="_blank" rel="noreferrer">WhatsApp inmediato</a>
-  </div>
-</section>
+  <!-- Quién soy con foto -->
+  <section id="quien-soy" class="section" style="background:#f5f5f5">
+    <div class="container">
+      <span class="badge">Quién soy</span>
+      <h2>Conóceme</h2>
+      <div class="profile">
+        <img src="https://via.placeholder.com/220x280.png?text=Tu+Foto" alt="Georgette Mora">
+        <div class="profile-text">
+          <p>Soy <strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en tribunales. Me he especializado en causas de familia, penales y civiles, con un enfoque en la defensa de los derechos de mis representados.</p>
+          <p>Cuento con formación académica complementaria en diversos <strong>diplomados en Derecho Penal, Procesal Penal y Litigación Oral</strong>, que me permiten ofrecer un servicio sólido, actualizado y estratégico.</p>
+          <p>Mi sello es una <span style="color:green"><strong>defensa clara y cercana para decisiones seguras</strong></span>, combinada con <span style="color:gray">atención remota a nivel nacional y presencial en Arica</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Georgette Mora · Abogada. Todos los derechos reservados.</p>
-</footer>
+  <!-- Jurisprudencia -->
+  <section id="jurisprudencia" class="section">
+    <div class="container">
+      <span class="badge">Jurisprudencia comentada</span>
+      <h2>Análisis de fallos relevantes</h2>
 
+      <article class="card">
+        <div class="card-body">
+          <h3>Procedimiento abreviado y apelación por infracción de derecho</h3>
+          <p class="muted">
+            ¿Qué ocurre cuando el imputado acepta los hechos? ¿Significa que no se puede apelar? 
+            Este comentario explica por qué la apelación por infracción de ley sigue siendo una herramienta válida.
+          </p>
+          <p>
+            En Chile, el procedimiento abreviado suele entenderse como un acuerdo en que el imputado acepta los hechos
+            y con ello renuncia a discutir en segunda instancia. Sin embargo, esto no es correcto.
+            <strong>El juez de garantía debe analizar si los hechos y antecedentes configuran el delito imputado</strong>.
+            Si no lo hace, existe infracción de ley y es posible apelar.
+          </p>
+          <ul>
+            <li>El abreviado no significa renunciar a discutir derecho.</li>
+            <li>La aceptación de hechos no reemplaza el análisis jurídico del tribunal.</li>
+            <li>La apelación por infracción de ley es una vía legítima y necesaria.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Actualidad Legal -->
+  <section id="actualidad" class="section" style="background:#f5f5f5">
+    <div class="container">
+      <span class="badge">Actualidad Legal</span>
+      <h2>Noticias y Cambios Legislativos</h2>
+      <ul>
+        <li><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley N° 21.760 sobre Adopción en Chile – BCN</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contacto con fondo Morro -->
+  <section id="contacto" class="section" style="background:url('https://upload.wikimedia.org/wikipedia/commons/2/26/Morro_de_Arica.jpg') center/cover no-repeat;">
+    <div class="overlay">
+      <div class="container" style="color:#fff;">
+        <span class="badge">Contacto</span>
+        <h2>Agenda tu consulta</h2>
+        <form name="contacto" method="POST" data-netlify="true" class="form" style="color:#000; background:#fff; border-radius:12px; padding:20px; max-width:640px; margin:0 auto;">
+          <input type="hidden" name="form-name" value="contacto">
+          <div class="row">
+            <div><label>Nombre</label><input type="text" name="nombre" required></div>
+            <div><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 ..." required></div>
+          </div>
+          <label>Correo electrónico</label><input type="email" name="correo" required>
+          <label>Mensaje</label><textarea name="mensaje" required></textarea>
+          <div style="margin-top:14px">
+            <button class="btn btn-primary" type="submit">Enviar consulta</button>
+            <a class="btn btn-outline" href="https://wa.me/56993234860" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height:18px; vertical-align:middle; margin-right:6px;"> WhatsApp
+            </a>
+          </div>
+        </form>
+        <p style="margin-top:20px">
+          <strong>Teléfono:</strong> +56 9 9323 4860<br>
+          <strong>Email:</strong> gmora006@gmail.com<br>
+          <strong>Dirección:</strong> Manuel Blanco Encalada 938, Arica, Chile
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Georgette Mora · Abogada. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
