@@ -1,197 +1,192 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgette Mora · Abogada</title>
+  <title>Georgette Mora - Abogada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      line-height:1.6;
-      padding-top:60px; /* espacio por menú fijo */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      scroll-behavior: smooth;
     }
-    nav{
-      background:#004d40;
-      padding:12px;
-      display:flex;
-      gap:16px;
-      justify-content:center;
-      position:fixed;
-      top:0; left:0; width:100%;
-      z-index:1000;
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    nav a{ color:#fff; text-decoration:none; font-weight:bold; }
-    nav a:hover{ text-decoration:underline; }
-    .section{ padding:60px 20px; }
-    .container{ max-width:960px; margin:auto; }
-    .badge{ background:#c5a300; color:#fff; padding:4px 10px; border-radius:6px; font-size:14px; }
-    h1,h2,h3{ margin-top:0; }
-    .title{ font-size:40px; color:#fff; }
-    .subtitle{ font-size:20px; color:#a5d6a7; }
-    .muted{ color:#666; }
-    .btn{ padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold; }
-    .btn-primary{ background:#c5a300; color:#fff; }
-    .btn-outline{ border:2px solid #c5a300; color:#c5a300; }
-    .card{ border:1px solid #ddd; border-radius:8px; margin-bottom:20px; box-shadow:2px 2px 5px rgba(0,0,0,0.1); }
-    .card-body{ padding:20px; background:#fff; }
-    input,textarea{ width:100%; padding:10px; margin:6px 0 14px; border:1px solid #ccc; border-radius:6px; }
-    .row{ display:flex; gap:12px; }
-    .row div{ flex:1; }
-    footer{ background:#004d40; color:#fff; text-align:center; padding:20px; }
-    .overlay{ background:rgba(0,0,0,0.55); padding:40px 0; }
-    .profile{ display:flex; flex-wrap:wrap; gap:20px; align-items:center; }
-    .profile img{ width:220px; border-radius:12px; box-shadow:2px 2px 6px rgba(0,0,0,0.3); }
-    .profile-text{ flex:1; }
-    html{ scroll-behavior:smooth; }
-    section{ scroll-margin-top:72px; }
-    .back-to-top{
-      position:fixed;
-      right:16px; bottom:80px;
-      background:#c5a300; color:#fff;
-      width:44px; height:44px;
-      border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      text-decoration:none; font-size:20px;
-      box-shadow:0 8px 18px rgba(0,0,0,.18);
-      z-index:999;
+    header nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-    .back-to-top:hover{ filter:brightness(1.05); }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 5rem 2rem;
+      min-height: 100vh;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .hero {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Chungara_Lake.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      background: rgba(0,0,0,0.5);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    .quien-soy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .quien-soy img {
+      width: 220px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .contacto {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Morro_de_Arica.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      padding: 3rem;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .enlaces {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .enlaces a {
+      display: block;
+      margin: 5px 0;
+      color: #2980b9;
+      text-decoration: none;
+    }
   </style>
 </head>
-<body id="top">
+<body>
 
-  <!-- Navegación -->
+<header>
+  <div><strong>Georgette Mora - Abogada</strong></div>
   <nav>
-    <a href="#top">Inicio</a>
-    <a href="#areas">Áreas de práctica</a>
+    <a href="#inicio">Inicio</a>
     <a href="#quien-soy">Quién soy</a>
+    <a href="#areas">Áreas de práctica</a>
     <a href="#jurisprudencia">Jurisprudencia</a>
     <a href="#actualidad">Actualidad Legal</a>
     <a href="#contacto">Contacto</a>
   </nav>
+</header>
 
-  <!-- Encabezado -->
-  <header style="background:#004d40; height:50vh; display:flex; align-items:center; justify-content:center; text-align:center;">
-    <div>
-      <h1 class="title">Georgette Mora</h1>
-      <p class="subtitle">Defensa clara y cercana para decisiones seguras</p>
-      <p style="color:#ddd">Atención remota a nivel nacional y presencial en Arica</p>
+<section id="inicio" class="hero">
+  <h1>Defensa clara y cercana para decisiones seguras</h1>
+  <h3 style="background:rgba(0,0,0,0.6);display:inline-block;padding:5px 10px;border-radius:5px;">
+    Atención remota a nivel nacional y presencial en Arica
+  </h3>
+</section>
+
+<section id="quien-soy" class="quien-soy">
+  <h2>Quién soy</h2>
+  <img src="IMG_9405.jpg" alt="Georgette Mora">
+  <p><strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en litigación oral.<br>
+     Diplomada en Litigación Oral, Derecho Penal y Procesal Penal, y otras especializaciones jurídicas.<br>
+     Mi enfoque está en entregar una defensa rigurosa y clara para que mis clientes tomen decisiones seguras.</p>
+</section>
+
+<section id="areas">
+  <h2>Áreas de práctica</h2>
+  <ul>
+    <li>Derecho Penal</li>
+    <li>Derecho de Familia</li>
+    <li>Derecho Civil</li>
+  </ul>
+</section>
+
+<section id="jurisprudencia">
+  <h2>Jurisprudencia comentada</h2>
+  <p><strong>Procedimiento abreviado y control judicial</strong></p>
+  <p>La Corte de Apelaciones de Temuco (Rol 1554-2024) recordó que incluso en procedimiento abreviado,
+     el juez debe analizar si los hechos y antecedentes configuran efectivamente el delito imputado. 
+     No basta con la aceptación del imputado. Esto abre un camino importante para apelar por infracción de derecho,
+     fortaleciendo las garantías de defensa.</p>
+  <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=..." target="_blank">Leer fallo completo</a>
+</section>
+
+<section id="actualidad">
+  <h2>Actualidad Legal</h2>
+  <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">
+    Nueva Ley 21.760 de Adopción en Chile</a></p>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="overlay">
+    <h2>Contacto</h2>
+    <p><i class="fa fa-phone"></i> +56 9 9323 4860</p>
+    <p><i class="fa fa-envelope"></i> gmora006@gmail.com</p>
+    <p><i class="fa fa-map-marker"></i> Manuel Blanco Encalada 938, Arica, Chile</p>
+    <div class="enlaces">
+      <a href="https://si3.bcentral.cl/indicadoressiete/secure/IndicadoresDiarios.aspx" target="_blank">Indicadores económicos (UF, UTM, Dólar)</a>
+      <a href="https://ojv.pjud.cl/kpitec-ojv-web/tramite_facil" target="_blank">Trámite Fácil - Oficina Judicial Virtual</a>
+      <a href="https://agenda.minpublico.cl/denuncia/" target="_blank">Denuncia en línea - Ministerio Público</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Áreas de práctica con fondo Lago Chungará -->
-  <section id="areas" class="section" style="background:url('https://upload.wikimedia.org/wikipedia/commons/c/c8/Lago_Chungar%C3%A1_y_volc%C3%A1n_Parinacota.jpg') center/cover no-repeat;">
-    <div class="overlay">
-      <div class="container" style="color:#fff;">
-        <span class="badge">Áreas de práctica</span>
-        <h2>Cómo puedo ayudarte</h2>
-        <div class="card"><div class="card-body"><h3>Derecho de Familia</h3><p>Alimentos, cuidado personal, relación directa y regular, medidas de protección, divorcios, compensación económica y violencia intrafamiliar.</p></div></div>
-        <div class="card"><div class="card-body"><h3>Derecho Penal</h3><p>Defensa de imputados en todo tipo de delitos, medidas cautelares, recursos y estrategias en procedimientos simplificados y ordinarios.</p></div></div>
-        <div class="card"><div class="card-body"><h3>Derecho Civil</h3><p>Juicios de arrendamiento, precario, reivindicatorios, herencias, contratos y responsabilidad civil.</p></div></div>
-        <div class="card"><div class="card-body"><h3>Recursos Judiciales</h3><p>Redacción y tramitación de recursos de apelación, amparo, protección e inaplicabilidad ante el Tribunal Constitucional.</p></div></div>
-      </div>
-    </div>
-  </section>
+<a href="https://wa.me/56993234860" class="whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-  <!-- Quién soy con foto -->
-  <section id="quien-soy" class="section" style="background:#f5f5f5">
-    <div class="container">
-      <span class="badge">Quién soy</span>
-      <h2>Conóceme</h2>
-      <div class="profile">
-        <!-- ✅ Aquí debes reemplazar la URL por la de tu foto real -->
-        <img src="https://via.placeholder.com/220x280.png?text=Tu+Foto" alt="Georgette Mora">
-        <div class="profile-text">
-          <p>Soy <strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en tribunales. Me he especializado en causas de familia, penales y civiles, con un enfoque en la defensa de los derechos de mis representados.</p>
-          <p>Cuento con formación académica complementaria en diversos <strong>diplomados en Derecho Penal, Procesal Penal y Litigación Oral</strong>, que me permiten ofrecer un servicio sólido, actualizado y estratégico.</p>
-          <p>Mi sello es una <span style="color:green"><strong>defensa clara y cercana para decisiones seguras</strong></span>, combinada con <span style="color:gray">atención remota a nivel nacional y presencial en Arica</span>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>
+  <p>&copy; <span id="year"></span> Georgette Mora - Abogada. Todos los derechos reservados.</p>
+</footer>
 
-  <!-- Jurisprudencia comentada -->
-  <section id="jurisprudencia" class="section">
-    <div class="container">
-      <span class="badge">Jurisprudencia comentada</span>
-      <h2>Análisis de fallos relevantes</h2>
-      <article class="card">
-        <div class="card-body">
-          <h3>Procedimiento abreviado y apelación por infracción de derecho</h3>
-          <p class="muted">
-            Comentario al fallo de la <strong>Corte de Apelaciones de Temuco</strong>, Rol N° 1554-2024,
-            que reafirma la posibilidad de apelar en abreviado por infracción de ley.
-          </p>
-          <p>
-            En Chile, el procedimiento abreviado suele entenderse como un acuerdo en que el imputado acepta los hechos 
-            y con ello renuncia a discutir en segunda instancia. Sin embargo, este caso demuestra lo contrario: 
-            <strong>el juez de garantía tiene el deber de analizar si los hechos y antecedentes fundantes configuran el delito imputado</strong>. 
-            Si ese control no se realiza, existe infracción de ley y procede la apelación.
-          </p>
-          <ul>
-            <li>El abreviado no significa renunciar a discutir derecho.</li>
-            <li>La aceptación de hechos no reemplaza el análisis jurídico del tribunal.</li>
-            <li>La apelación por infracción de ley es una vía legítima y necesaria.</li>
-          </ul>
-          <p>
-            📄 <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb2ZpY2luYWp1ZGljaWFsdmlydHVhbC5wanVkLmNsIiwiYXVkIjoiaHR0cHM6XC9cL29maWNpbmFqdWRpY2lhbHZpcnR1YWwucGp1ZC5jbCIsImlhdCI6MTc1OTM0ODcxMiwiZXhwIjoxNzU5MzUyMzEyLCJkYXRhIjoiQUVCYjVicFVFZms4ZHVTT2xRQ2NkeGhBT1VvRkxPVGdcL3pVS3ZkaFdSXC95cFFvQlVFeTlGXC9LWVNOKzZ2V3JaWDFPR2hKOG85S3RkR0F4b3liM1NtNUtZNjIwZGEwYmJLcWc0Sk5cL2Erd3dqa2ZOMTZOdkpuZFg0K3F2aGJ6VE13ZmJCR3pnd28zbWRrREU4eUFIcVFHdz09In0.zj0h2ZvyhcN88AIulobFgMqZElcAfn0FQcXuQMYtrls" 
-            target="_blank" rel="noopener noreferrer">
-              Ver fallo completo ICA Temuco, Rol N° 1554-2024
-            </a>
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-  <!-- Actualidad Legal -->
-  <section id="actualidad" class="section" style="background:#f5f5f5">
-    <div class="container">
-      <span class="badge">Actualidad Legal</span>
-      <h2>Noticias y Cambios Legislativos</h2>
-      <ul>
-        <li><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley N° 21.760 sobre Adopción en Chile – BCN</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contacto con fondo Morro de Arica -->
-  <section id="contacto" class="section" style="background:url('https://upload.wikimedia.org/wikipedia/commons/2/26/Morro_de_Arica.jpg') center/cover no-repeat;">
-    <div class="overlay">
-      <div class="container" style="color:#fff;">
-        <span class="badge">Contacto</span>
-        <h2>Agenda tu consulta</h2>
-        <form name="contacto" method="POST" data-netlify="true" class="form" style="color:#000; background:#fff; border-radius:12px; padding:20px; max-width:640px; margin:0 auto;">
-          <input type="hidden" name="form-name" value="contacto">
-          <div class="row">
-            <div><label>Nombre</label><input type="text" name="nombre" required></div>
-            <div><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 ..." required></div>
-          </div>
-          <label>Correo electrónico</label><input type="email" name="correo" required>
-          <label>Mensaje</label><textarea name="mensaje" required></textarea>
-          <div style="margin-top:14px">
-            <button class="btn btn-primary" type="submit">Enviar consulta</button>
-            <a class="btn btn-outline" href="https://wa.me/56993234860" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height:18px; vertical-align:middle; margin-right:6px;"> WhatsApp
-            </a>
-          </div>
-        </form>
-        <p style="margin-top:20px">
-          <strong>Teléfono:</strong> +56 9 9323 4860<br>
-          <strong>Email:</strong> gmora006@gmail.com<br>
-          <strong>Dirección:</strong> Manuel Blanco Encalada 938, Arica, Chile
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Botón volver arriba -->
-  <a href="#top" class="back-to-top" aria-label="Volver arriba">↑</a>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Georgette Mora · Abogada. Todos los derechos reservados.</p>
-  </footer>
 </body>
 </html>
