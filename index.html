@@ -1,114 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Georgette Mora - Abogada</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      scroll-behavior: smooth;
+    body{margin:0;font-family:Arial, sans-serif;color:#333;scroll-behavior:smooth;padding-top:60px}
+    header{background:#004d40;color:#fff;padding:1rem;position:fixed;top:0;width:100%;z-index:1000;display:flex;justify-content:space-between;align-items:center}
+    header nav a{color:#fff;margin:0 1rem;text-decoration:none;font-weight:bold}
+    header nav a:hover{text-decoration:underline}
+    section{padding:5rem 2rem;min-height:60vh}
+    h1,h2,h3{text-align:center;margin-bottom:1rem}
+    .hero{background:#004d40;color:#fff;text-align:center;padding:8rem 2rem}
+    .hero h1{font-size:2.4rem}
+    .quien-soy{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .quien-soy img{width:220px;height:auto;border-radius:10px;margin-bottom:1rem;box-shadow:2px 2px 8px rgba(0,0,0,.3)}
+
+    /* ✅ Usa tus archivos tal cual están subidos (con espacios y mayúsculas) */
+    .areas{
+      background:url('Lago%20Chungara.JPG') no-repeat center center/cover;
+      color:#fff;text-shadow:1px 1px 3px rgba(0,0,0,.7)
     }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 1rem;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .contacto{
+      background:url('Morro%20de%20Arica.JPG') no-repeat center center/cover;
+      color:#fff;text-align:center
     }
-    header nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 5rem 2rem;
-      min-height: 100vh;
-    }
-    h1, h2, h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .hero {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Chungara_Lake.jpg') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 8rem 2rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      background: rgba(0,0,0,0.5);
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-    }
-    .quien-soy {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .quien-soy img {
-      width: 220px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px 15px;
-      border-radius: 50%;
-      font-size: 24px;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    .contacto {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Morro_de_Arica.jpg') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-    }
-    .overlay {
-      background: rgba(0,0,0,0.6);
-      padding: 3rem;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    .enlaces {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .enlaces a {
-      display: block;
-      margin: 5px 0;
-      color: #2980b9;
-      text-decoration: none;
-    }
+    .overlay{background:rgba(0,0,0,.6);padding:3rem;border-radius:10px;display:inline-block}
+    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:12px 15px;border-radius:50%;font-size:24px;text-align:center;text-decoration:none;box-shadow:0 2px 5px rgba(0,0,0,.3);z-index:1000}
+    .back-to-top{position:fixed;right:20px;bottom:80px;background:#c5a300;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 8px 18px rgba(0,0,0,.18);z-index:1000}
+    footer{background:#004d40;color:#fff;text-align:center;padding:1rem}
+    .enlaces{text-align:center;margin-top:2rem}
+    .enlaces a{display:block;margin:5px 0;color:#ffeb3b;text-decoration:none}
+    /* que las anclas no queden tapadas por el menú fijo */
+    section{scroll-margin-top:72px}
   </style>
 </head>
-<body>
+<body id="top">
 
 <header>
   <div><strong>Georgette Mora - Abogada</strong></div>
@@ -124,42 +52,62 @@
 
 <section id="inicio" class="hero">
   <h1>Defensa clara y cercana para decisiones seguras</h1>
-  <h3 style="background:rgba(0,0,0,0.6);display:inline-block;padding:5px 10px;border-radius:5px;">
+  <h3 style="background:rgba(0,0,0,.6);display:inline-block;padding:6px 10px;border-radius:6px">
     Atención remota a nivel nacional y presencial en Arica
   </h3>
 </section>
 
 <section id="quien-soy" class="quien-soy">
   <h2>Quién soy</h2>
+  <!-- Tu foto ya subida -->
   <img src="IMG_9405.jpg" alt="Georgette Mora">
-  <p><strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en litigación oral.<br>
-     Diplomada en Litigación Oral, Derecho Penal y Procesal Penal, y otras especializaciones jurídicas.<br>
-     Mi enfoque está en entregar una defensa rigurosa y clara para que mis clientes tomen decisiones seguras.</p>
+  <p><strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en litigación oral.
+     Diplomada en Litigación Oral, Derecho Penal y Procesal Penal. Mi enfoque es una defensa rigurosa y clara
+     para que tomes decisiones seguras.</p>
 </section>
 
-<section id="areas">
+<section id="areas" class="areas">
   <h2>Áreas de práctica</h2>
-  <ul>
-    <li>Derecho Penal</li>
-    <li>Derecho de Familia</li>
-    <li>Derecho Civil</li>
-  </ul>
+  <div class="overlay" style="max-width:900px;margin:0 auto">
+    <h3>Cómo puedo ayudarte</h3>
+    <ul style="font-size:1.05rem;line-height:1.9;margin:0 auto;max-width:760px;text-align:left">
+      <li><strong>Derecho de Familia:</strong> alimentos, cuidado personal, relación directa y regular, medidas de protección, divorcios, compensación económica y VIF.</li>
+      <li><strong>Derecho Penal:</strong> defensa de imputados, medidas cautelares, procedimientos simplificados y ordinarios, recursos.</li>
+      <li><strong>Derecho Civil:</strong> arrendamiento, precario, herencias, contratos, responsabilidad civil.</li>
+      <li><strong>Recursos Judiciales:</strong> apelaciones, amparo, protección e inaplicabilidad.</li>
+    </ul>
+  </div>
 </section>
 
 <section id="jurisprudencia">
   <h2>Jurisprudencia comentada</h2>
-  <p><strong>Procedimiento abreviado y control judicial</strong></p>
-  <p>La Corte de Apelaciones de Temuco (Rol 1554-2024) recordó que incluso en procedimiento abreviado,
-     el juez debe analizar si los hechos y antecedentes configuran efectivamente el delito imputado. 
-     No basta con la aceptación del imputado. Esto abre un camino importante para apelar por infracción de derecho,
-     fortaleciendo las garantías de defensa.</p>
-  <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=..." target="_blank">Leer fallo completo</a>
+  <article style="max-width:900px;margin:0 auto">
+    <h3>Procedimiento abreviado y apelación por infracción de derecho</h3>
+    <p>
+      La <strong>Corte de Apelaciones de Temuco</strong>, en causa <strong>Rol N° 1554-2024</strong>, resolvió que aun en
+      procedimiento abreviado el juez de garantía debe verificar si los hechos aceptados y los antecedentes fundantes
+      configuran efectivamente el delito imputado. La aceptación del imputado <em>no</em> reemplaza ese control jurídico.
+    </p>
+    <p>
+      Esto abre la puerta a interponer recursos de apelación <strong>por infracción de derecho</strong> cuando el tribunal
+      omite ese examen. Refuerza que el abreviado no implica renunciar a discutir el derecho aplicable.
+    </p>
+    <p>📄
+      <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb2ZpY2luYWp1ZGljaWFsdmlydHVhbC5wanVkLmNsIiwiYXVkIjoiaHR0cHM6XC9cL29maWNpbmFqdWRpY2lhbHZpcnR1YWwucGp1ZC5jbCIsImlhdCI6MTc1OTM0ODcxMiwiZXhwIjoxNzU5MzUyMzEyLCJkYXRhIjoiQUVCYjVicFVFZms4ZHVTT2xRQ2NkeGhBT1VvRkxPVGdcL3pVS3ZkaFdSXC95cFFvQlVFeTlGXC9LWVNOKzZ2V3JaWDFPR2hKOG85S3RkR0F4b3liM1NtNUtZNjIwZGEwYmJLcWc0Sk5cL2Erd3dqa2ZOMTZOdkpuZFg0K3F2aGJ6VE13ZmJCR3pnd28zbWRrREU4eUFIcVFHdz09In0.zj0h2ZvyhcN88AIulobFgMqZElcAfn0FQcXuQMYtrls"
+         target="_blank" rel="noopener noreferrer">
+        Ver fallo completo (ICA Temuco, Rol 1554-2024)
+      </a>
+    </p>
+  </article>
 </section>
 
 <section id="actualidad">
   <h2>Actualidad Legal</h2>
-  <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">
-    Nueva Ley 21.760 de Adopción en Chile</a></p>
+  <p style="text-align:center">
+    <a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">
+      Ley N° 21.760 sobre Adopción en Chile (BCN)
+    </a>
+  </p>
 </section>
 
 <section id="contacto" class="contacto">
@@ -176,17 +124,16 @@
   </div>
 </section>
 
-<a href="https://wa.me/56993234860" class="whatsapp" target="_blank">
+<a href="https://wa.me/56993234860" class="whatsapp" target="_blank" aria-label="WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<a href="#top" class="back-to-top" aria-label="Volver arriba">↑</a>
 
 <footer>
   <p>&copy; <span id="year"></span> Georgette Mora - Abogada. Todos los derechos reservados.</p>
 </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
