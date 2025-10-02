@@ -52,49 +52,37 @@ h2{font-size:28px}
 .card-body{padding:18px}
 .sep{height:1px;background:#e6e7ea;margin:16px 0}
 
-/* PORTADA: ocupa toda la pantalla, con foco en el reloj */
+/* PORTADA COMPLETA */
 #inicio{
-  min-height:92vh;
-  position:relative;
+  min-height:100vh;          /* ocupa toda la pantalla */
   display:flex;
   align-items:center;
   justify-content:center;
   color:#fff;
   text-align:center;
-  overflow:hidden;         /* por si hay recorte en móvil */
+  position:relative;
+  overflow:hidden;
 }
 
-/* La imagen como fondo real "cover" con foco ajustable */
 #inicio::before{
   content:"";
   position:absolute;
   inset:0;
-  background-image:url("oficina.jpg");    /* usa el nuevo JPG/PNG */
+  background-image:url("oficina.jpg"); /* asegúrate que tu archivo sea JPG/PNG */
   background-repeat:no-repeat;
-  background-size:cover;                  /* PORTADA: llena sin franjas */
-  background-position:50% 38%;            /* <-- foco en el reloj (ajustable) */
-  filter:none;
+  background-size:cover;              /* FOTO COMO PORTADA */
+  background-position:center 40%;     /* ajusta el foco en el reloj */
   z-index:-2;
 }
 
-/* Capa oscura suave para legibilidad del texto */
 #inicio::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.45); /* capa oscura para que el texto se lea */
   z-index:-1;
 }
 
-/* Ajustes de foco según proporción de pantalla */
-@media (max-aspect-ratio: 3/4){          /* pantallas muy verticales (móvil) */
-  #inicio::before{ background-position:50% 25%; }  /* sube un poco el foco */
-}
-@media (min-aspect-ratio: 16/9){         /* pantallas muy apaisadas */
-  #inicio::before{ background-position:50% 45%; }  /* baja un poco el foco */
-}
-
-/* Panel de texto de tu hero (si lo usas) */
 #inicio .panel{
   background:rgba(0,0,0,.35);
   padding:28px 24px;
