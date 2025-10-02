@@ -78,10 +78,15 @@ h2{font-size:28px}
 .area{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px}
 
 /* CONTACTO */
-#contacto{
-  color:#fff;
-  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-             url("Morro%20de%20Arica.JPG") center/cover no-repeat fixed;
+#contacto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("Morro de Arica.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 40%; /* 👈 mueve el foco hacia abajo */
+  z-index: -2;
 }
 #contacto .overlay{max-width:900px;margin:0 auto;background:rgba(0,0,0,.35);padding:20px;border-radius:14px}
 #contacto a{color:#fff;text-decoration:underline}
