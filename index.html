@@ -142,22 +142,7 @@
   <!-- Contenedor donde se pintará el contenido del JSON -->
   <div id="lista-juris" class="paper" style="display:grid; gap:16px;">
     <p class="muted">Cargando jurisprudencia…</p>
-  </div>
-</section>
-        </p>
-        <h4>Aspectos centrales del fallo:</h4>
-        <ol>
-          <li><strong>Control judicial del derecho aplicable:</strong> La aceptación de los hechos no implica que
-              el tribunal quede eximido de verificar si tales hechos constituyen efectivamente el delito descrito
-              en la acusación.</li>
-          <li><strong>Recurso de apelación por error de derecho:</strong> Si el juez yerra en la calificación jurídica
-              —ya sea por exigir elementos no previstos en el tipo penal o por una interpretación incorrecta de la norma—
-              procede la impugnación mediante apelación, aun en procedimiento abreviado.</li>
-        </ol>
-      <p class="muted" style="font-size:13px">Palabras clave: procedimiento abreviado, apelación, error de derecho.</p>
-    </article>
-  </section>
-
+  
   <section id="actualidad">
     <h2>Actualidad legal</h2>
     <div class="paper">
@@ -217,7 +202,6 @@
       return;
     }
 
-    // Ordenar por fecha (más reciente primero)
     items.sort((a, b) => (b.fecha || '').localeCompare(a.fecha || ''));
 
     const partes = items.map(item => {
@@ -233,7 +217,7 @@
           <h3 style="margin-top:0">${titulo}${rol}</h3>
           ${fecha ? `<p class="muted" style="margin:0 0 8px">${fecha}</p>` : ''}
           <p>${resumen}</p>
-          ${tags.length ? `<p class="muted" style="font-size:13px;margin:8px 0">Palabras clave: ${tags.map(t => `<span>${t}</span>`).join(', ')}</p>` : ''}
+          ${tags.length ? `<p class="muted" style="font-size:13px;margin:8px 0">Palabras clave: ${tags.join(', ')}</p>` : ''}
           ${enlace ? `<p style="margin:8px 0"><a href="${enlace}" target="_blank" rel="noopener">Ver fallo / documento</a></p>` : ''}
         </article>
       `;
