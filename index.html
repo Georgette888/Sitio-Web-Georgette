@@ -137,23 +137,13 @@
   </section>
 
   <section id="jurisprudencia">
-    <h2>Jurisprudencia comentada</h2>
-    <article class="paper">
-      <h3>Corte de Apelaciones de Temuco, Rol N° 1554-2024</h3>
-      <p>En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en
-          procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado,
-          pero lo absolvió respecto de otro, al estimar que este último no configuraba delito.
-        </p>
-        <p>
-          La apelación se fundó en que el tribunal de primera instancia incurrió en <strong>error de derecho</strong>,
-          al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente.
-          La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.
-        </p>
-        <p>
-          El fallo enfatiza que, incluso en procedimiento abreviado, el juez de garantía debe verificar que
-          los hechos aceptados por el imputado y los antecedentes de la investigación encuadren jurídicamente
-          en el delito imputado. La aceptación del imputado no reemplaza el control judicial sobre la tipicidad
-          y subsunción de los hechos.
+  <h2>Jurisprudencia comentada</h2>
+
+  <!-- Contenedor donde se pintará el contenido del JSON -->
+  <div id="lista-juris" class="paper" style="display:grid; gap:16px;">
+    <p class="muted">Cargando jurisprudencia…</p>
+  </div>
+</section>
         </p>
         <h4>Aspectos centrales del fallo:</h4>
         <ol>
@@ -213,5 +203,53 @@
   <footer>
     <p>© 2025 Georgette Mora – Abogada</p>
   </footer>
+<script>
+(async function cargarJurisprudencia() {
+  const contenedor = document.getElementById('lista-juris');
+  try {
+    const r = await fetch('contenido.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error('No se pudo cargar contenido.json');
+    const data = await r.json();
+
+    const items = (data.jurisprudencia || []);
+    if (!items.length) {
+      contenedor.innerHTML = '<p class="muted">Aún no hay comentarios de jurisprudencia publicados.</p>';
+      return;
+    }
+
+    // Ordenar por fecha (más reciente primero)
+    items.sort((a, b) => (b.fecha || '').localeCompare(a.fecha || ''));
+
+    const partes = items.map(item => {
+      const titulo = item.titulo || 'Jurisprudencia';
+      const rol = item.rol ? ` – <strong>${item.rol}</strong>` : '';
+      const fecha = item.fecha ? new Date(item.fecha).toLocaleDateString('es-CL') : '';
+      const resumen = item.resumen || '';
+      const tags = Array.isArray(item.palabras_clave) ? item.palabras_clave : [];
+      const enlace = item.enlace_fallo;
+
+      return `
+        <article class="paper">
+          <h3 style="margin-top:0">${titulo}${rol}</h3>
+          ${fecha ? `<p class="muted" style="margin:0 0 8px">${fecha}</p>` : ''}
+          <p>${resumen}</p>
+          ${tags.length ? `<p class="muted" style="font-size:13px;margin:8px 0">Palabras clave: ${tags.map(t => `<span>${t}</span>`).join(', ')}</p>` : ''}
+          ${enlace ? `<p style="margin:8px 0"><a href="${enlace}" target="_blank" rel="noopener">Ver fallo / documento</a></p>` : ''}
+        </article>
+      `;
+    });
+
+    contenedor.innerHTML = partes.join('');
+  } catch (e) {
+    console.error(e);
+    contenedor.innerHTML = `
+      <div class="paper">
+        <p>No pudimos cargar la jurisprudencia en este momento.</p>
+        <p class="muted" style="font-size:13px">Sugerencia: verifica que <code>contenido.json</code> esté en la raíz del sitio.</p>
+      </div>
+    `;
+  }
+})();
+</script>
 </body>
 </html>
