@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pago exitoso</title>
+<style>body{font-family:Inter,Arial,sans-serif;display:grid;place-items:center;height:100vh;margin:0;background:#f7f8f9;color:#1b1f24}.card{background:#fff;padding:24px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);max-width:640px}</style>
+</head><body>
+  <div class="card">
+    <h1>✅ Pago exitoso</h1>
+    <p>Gracias. Tu pago fue autorizado.</p>
+    <p id="det"></p>
+    <p><a href="/">Volver al inicio</a></p>
+  </div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const monto = p.get("monto"), orden = p.get("orden");
+  document.getElementById("det").textContent = `Orden ${orden || ""} · Monto $${monto || ""}`;
+</script>
+</body></html>
