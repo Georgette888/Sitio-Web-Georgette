@@ -1,0 +1,8 @@
+{
+  "name": "georgettemora",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "transbank-sdk": "^6.1.0"
+  }
+}
