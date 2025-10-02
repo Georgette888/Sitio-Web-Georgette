@@ -5,152 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Georgette Mora - Abogada</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+    body { margin: 0; font-family: Arial, sans-serif; }
+
+    /* NAVBAR */
+    nav { background-color: #004d40; padding: 15px; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+
+    /* SECTIONS */
+    section { padding: 100px 20px; text-align: center; min-height: 100vh; }
+    h1, h2 { color: #004d40; }
+
+    /* PORTADA */
+    #inicio {
+      background: url('oficina.jpeg') no-repeat center 40%/cover;
+      color: white; display: flex; justify-content: center; align-items: center;
+      height: 100vh; flex-direction: column;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
-    header {
-      background: url('oficina.jpg') no-repeat center 40%/cover;
-      height: 100vh;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    #inicio img.logo { max-width: 280px; margin-bottom: 20px; }
+
+    /* QUIÉN SOY */
+    #quien-soy img { width: 200px; border-radius: 10px; margin-top: 20px; }
+
+    /* ÁREAS DE PRÁCTICA */
+    #areas {
+      background: url('Lago Chungara.JPG') no-repeat center/cover;
+      color: white; padding: 80px 20px;
+      text-shadow: 1px 1px 3px black;
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
+    .areas-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; }
+
+    /* CONTACTO */
+    #contacto {
+      background: url('Morro de Arica.JPG') no-repeat center/cover;
+      color: #e0f2f1; /* verde suave */
+      padding: 80px 20px;
+      text-shadow: 1px 1px 3px black;
     }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      display: flex;
-      justify-content: center;
-      z-index: 1000;
+
+    /* FORMULARIO */
+    form { max-width: 500px; margin: 0 auto; text-align: left; }
+    form input, form textarea {
+      width: 100%; padding: 10px; margin-bottom: 10px;
+      border: none; border-radius: 5px;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      padding: 15px;
-      display: inline-block;
-    }
-    nav a:hover {
-      background: #2a7c3b;
-    }
-    section {
-      padding: 60px 20px;
-    }
-    footer {
-      text-align: center;
-      background: #1b1f24;
-      color: white;
-      padding: 20px;
-    }
-    /* Botón de pago */
-    #btnPagar {
-      background: #25d366;
-      color: white;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
+    form button {
+      background: #004d40; color: white;
+      padding: 10px 20px; border: none; border-radius: 5px;
       cursor: pointer;
-      margin-top: 20px;
     }
-    #btnPagar:hover {
-      background: #1ebe5b;
-    }
+    form button:hover { background: #00695c; }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#quien-soy">Quién soy</a>
-    <a href="#areas">Áreas de práctica</a>
-    <a href="#jurisprudencia">Jurisprudencia</a>
-    <a href="#contacto">Contacto</a>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#quien-soy">Quién soy</a></li>
+      <li><a href="#areas">Áreas de práctica</a></li>
+      <li><a href="#jurisprudencia">Jurisprudencia</a></li>
+      <li><a href="#actualidad">Actualidad Legal</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
   </nav>
 
-  <header id="inicio">
-    <h1>Georgette Mora</h1>
-    <p>Defensa clara y cercana para decisiones seguras</p>
-    <p style="background: rgba(0,0,0,0.5); display:inline-block; padding:10px 20px; border-radius:10px;">
-      Atención remota a nivel nacional y presencial en Arica
-    </p>
-  </header>
+  <!-- INICIO -->
+  <section id="inicio">
+    <img src="ABOGADA-ICONO-FACEBOOK_Mesa de trabajo 1.jpg" alt="Logo Georgette Mora" class="logo">
+    <h1>Defensa clara y cercana para decisiones seguras</h1>
+    <p>Atención remota en todo Chile y presencial en Arica</p>
+  </section>
 
+  <!-- QUIÉN SOY -->
   <section id="quien-soy">
     <h2>Quién soy</h2>
-    <p>Abogada litigante con más de 8 años de experiencia en Derecho Penal, de Familia y Civil. 
-       Diplomada en Litigación Oral, Derecho Penal y Procesal Penal.</p>
-    <img src="IMG_9405.jpg" alt="Foto Georgette Mora" style="max-width:250px; border-radius:50%;">
+    <p>Soy <strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en defensa en tribunales de familia, civil y penal. 
+    Cuento con diplomados en Litigación Oral, Derecho Penal y Procesal Penal, además de constante perfeccionamiento en materias jurídicas.</p>
+    <img src="IMG_9405.jpg" alt="Georgette Mora">
   </section>
 
-  <section id="areas" style="background:url('Lago Chungara.JPG') no-repeat center/cover; color:white;">
-    <h2>Áreas de práctica</h2>
-    <ul>
-      <li>Derecho Penal</li>
-      <li>Derecho de Familia</li>
-      <li>Derecho Civil</li>
-      <li>Derecho Laboral (tutela laboral, juicio ordinario y monitorio)</li>
-    </ul>
+  <!-- ÁREAS DE PRÁCTICA -->
+  <section id="areas">
+    <h2>Áreas de Práctica</h2>
+    <div class="areas-list">
+      <div>Derecho Penal</div>
+      <div>Derecho de Familia</div>
+      <div>Derecho Civil</div>
+      <div>Derecho Laboral (tutela, ordinario, monitorio)</div>
+    </div>
   </section>
 
+  <!-- JURISPRUDENCIA -->
   <section id="jurisprudencia">
     <h2>Jurisprudencia comentada</h2>
-    <article>
-      <h3>Corte de Apelaciones de Temuco, Rol N° 1554-2024</h3>
-      <p>En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado...</p>
-      <a href="https://oficinajudicialvirtual.pjud.cl/" target="_blank">Leer fallo completo</a>
-    </article>
+    <p><strong>Corte de Apelaciones de Temuco, Rol N° 1554-2024</strong></p>
+    <p>El fallo reafirma que en procedimiento abreviado el juez de garantía debe verificar la tipicidad de los hechos aceptados por el imputado, 
+    y que la aceptación no sustituye el control judicial. Se abre la puerta a apelar por infracción de derecho.</p>
+    <p><a href="Sentencia comentada abreviado.pdf" target="_blank">Leer comentario completo</a></p>
   </section>
 
-  <section id="contacto" style="background:url('Morro de Arica.JPG') no-repeat center/cover; color:#e6ffe6;">
+  <!-- ACTUALIDAD -->
+  <section id="actualidad">
+    <h2>Actualidad Legal</h2>
+    <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Nueva Ley 21.760 de Adopción en Chile</a></p>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
     <h2>Contacto</h2>
+    <p>📞 <a href="tel:+56993234860" style="color:#e0f2f1;">+56 9 9323 4860</a></p>
+    <p>📧 <a href="mailto:gmora006@gmail.com" style="color:#e0f2f1;">gmora006@gmail.com</a></p>
     <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
-    <p>📞 +56993234860</p>
-    <p>📧 gmora006@gmail.com</p>
-    <!-- Botón de pago -->
-    <button id="btnPagar">💳 Pagar consulta</button>
+
+    <h3>Formulario de Contacto</h3>
+    <form action="https://formspree.io/f/tu-form-id" method="POST">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <h3>Enlaces Útiles</h3>
+    <p><a href="https://si3.bcentral.cl/Indicadoressiete/secure/Indicadoresdiarios.aspx" target="_blank">Indicadores Económicos (UF, UTM, Dólar)</a></p>
+    <p><a href="https://ojv.pjud.cl/kpitec-ojv-web/tramite_facil" target="_blank">Trámite Fácil - Oficina Judicial Virtual</a></p>
+    <p><a href="https://agenda.minpublico.cl/denuncia/" target="_blank">Denuncia en línea - Ministerio Público</a></p>
   </section>
 
-  <footer>
-    <p>© 2025 Georgette Mora - Abogada</p>
-  </footer>
-
-  <!-- Script de pago Webpay -->
-  <script>
-  document.getElementById("btnPagar").addEventListener("click", async () => {
-    try {
-      const resp = await fetch("/api/create-transaction", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({ amount: 3500 })
-      }).then(r => r.json());
-
-      if (!resp.url || !resp.token) throw new Error("Sin token/url");
-
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = resp.url;
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = "token_ws";
-      input.value = resp.token;
-      form.appendChild(input);
-      document.body.appendChild(form);
-      form.submit();
-    } catch (e) {
-      alert("No se pudo iniciar el pago. Intenta más tarde.");
-      console.error(e);
-    }
-  });
-  </script>
 </body>
 </html>
