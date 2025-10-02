@@ -1,16 +1,12 @@
 {
   "jurisprudencia": [
     {
-      "titulo": "Corte de Apelaciones de Temuco, Rol N° 1554-2024",
-      "comentario": "En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado, pero lo absolvió respecto de otro, al estimar que este último no configuraba delito.\n\nLa apelación se fundó en que el tribunal de primera instancia incurrió en error de derecho, al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente. La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.\n\nEl fallo enfatiza que, incluso en procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de la investigación encuadren jurídicamente en el delito imputado. La aceptación del imputado no reemplaza el control judicial sobre la tipicidad y subsunción de los hechos.\n\nEste criterio releva dos aspectos centrales:\n1. Control judicial del derecho aplicable: La aceptación de los hechos no implica que el tribunal quede eximido de verificar si tales hechos constituyen efectivamente el delito descrito en la acusación.\n2. Recurso de apelación por error de derecho: Si el juez yerra en la calificación jurídica —ya sea por exigir elementos no previstos en el tipo penal o por una interpretación incorrecta de la norma— procede la impugnación mediante apelación, aun en procedimiento abreviado.\n\nCon ello, la Corte refuerza que el procedimiento abreviado no es una instancia de mera homologación de acuerdos, sino que exige un control jurídico efectivo de la adecuación de los hechos al derecho.",
-      "enlace": "fallo-Temuco-1554-2024.pdf",
-      "palabras_clave": ["procedimiento abreviado", "apelación", "error de derecho", "Corte de Apelaciones de Temuco", "Rol 1554-2024"]
-    }
-  ],
-  "actualidad": [
-    {
-      "titulo": "Ley N° 21.760 sobre Adopción en Chile",
-      "link": "https://www.bcn.cl/leychile/navegar?idNorma=140084"
+      "titulo": "Procedimiento abreviado – Corte de Apelaciones de Temuco",
+      "rol": "Rol N° 1554-2024",
+      "fecha": "2024-09-15",
+      "resumen": "En procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de investigación configuren jurídicamente el delito. La aceptación no sustituye el control judicial. La Corte acogió apelación por error de derecho y dictó condena.",
+      "palabras_clave": ["procedimiento abreviado", "apelación", "error de derecho", "control judicial"],
+      "enlace_fallo": "Sentencia comentada abreviado.pdf"
     }
   ]
 }
