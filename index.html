@@ -4,8 +4,181 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Georgette Mora - Abogada</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
+    /* Importar tu fuente Arinttika */
+    @font-face {
+      font-family: 'Arinttika';
+      src: url('fonts/Arinttika Signature.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #004d40;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 80px 20px 40px;
+      min-height: 100vh;
+    }
+    /* Portada */
+    .portada {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url("oficina.jpeg") no-repeat center center/cover;
+      height: 100vh;
+      text-align: center;
+      color: white;
+    }
+    .nombre {
+      font-family: 'Arinttika', cursive;
+      font-size: 4rem;
+      margin: 0;
+    }
+    .subtitulo {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+    h2 {
+      color: #004d40;
+    }
+    /* Contacto */
+    .contacto {
+      background: url("Morro de Arica.JPG") no-repeat center center/cover;
+      color: #e0f2f1; /* verde suave */
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .contacto a {
+      color: #b2dfdb;
+      text-decoration: none;
+    }
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form textarea, form button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .pago {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .pago a {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #00796b;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#quien-soy">Quién soy</a>
+      <a href="#areas">Áreas de práctica</a>
+      <a href="#jurisprudencia">Jurisprudencia comentada</a>
+      <a href="#actualidad">Actualidad Legal</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Portada -->
+  <section id="inicio" class="portada">
+    <h1 class="nombre">Georgette Mora</h1>
+    <p class="subtitulo">Abogada - Defensa clara y cercana para decisiones seguras</p>
+  </section>
+
+  <section id="quien-soy">
+    <h2>Quién soy</h2>
+    <p>Soy Georgette Mora, abogada con más de 8 años de experiencia en litigación en tribunales de familia, civil, laboral y penal. 
+       Cuento con diplomados en litigación oral, derecho penal y procesal penal, y derecho de familia. 
+       Mi compromiso es brindar una <strong>defensa clara y cercana para decisiones seguras</strong>, 
+       con atención remota a nivel nacional y presencial en Arica.</p>
+  </section>
+
+  <section id="areas">
+    <h2>Áreas de práctica</h2>
+    <ul>
+      <li>Derecho de Familia</li>
+      <li>Derecho Penal</li>
+      <li>Derecho Civil</li>
+      <li>Derecho Laboral (tutela laboral, juicio ordinario y monitorio)</li>
+    </ul>
+  </section>
+
+  <section id="jurisprudencia">
+    <h2>Jurisprudencia comentada</h2>
+    <h3>Corte de Apelaciones de Temuco, Rol N° 1554-2024</h3>
+    <p>Este fallo refuerza que en el procedimiento abreviado el juez de garantía no solo recibe la aceptación de hechos por parte del imputado, 
+       sino que debe verificar si los hechos y antecedentes fundantes configuran jurídicamente el delito imputado. 
+       Además, establece la posibilidad de interponer recursos de apelación por infracción de derecho cuando el juez realiza 
+       una interpretación errónea del tipo penal.</p>
+    <p><a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=..." target="_blank">Ver fallo completo</a></p>
+  </section>
+
+  <section id="actualidad">
+    <h2>Actualidad Legal</h2>
+    <p>Revisa la <a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley 21.760 de Adopción en Chile</a>.</p>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <h2>Contacto</h2>
+    <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
+    <p>📞 <a href="tel:+56993234860">+56 9 9323 4860</a></p>
+    <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
+
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="mensaje" rows="5" placeholder="Tu consulta..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div class="pago">
+      <p>Realiza tus pagos de forma segura a través de Webpay:</p>
+      <a href="https://www.webpay.cl/" target="_blank">💳 Pagar con Webpay</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Georgette Mora - Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
