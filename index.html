@@ -236,5 +236,48 @@ async function cargarContenido(){
 cargarContenido();
 </script>
 
+  <script>
+(async () => {
+  // Usa la URL RAW para evitar problemas de ruta/caché
+  const url = "https://raw.githubusercontent.com/Georgette888/Sitio-Web-Georgette/main/contenido.json?_=" + Date.now();
+
+  const jurWrap = document.querySelector("#jurisprudencia .container");
+  const actList = document.querySelector("#actualidad .container ul");
+
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error("No pude leer contenido.json");
+    const data = await res.json();
+
+    // --- Jurisprudencia ---
+    if (jurWrap && Array.isArray(data.jurisprudencia)) {
+      data.jurisprudencia.forEach(item => {
+        const art = document.createElement("article");
+        art.className = "card";
+        art.innerHTML = `
+          <div class="card-body">
+            <h3>${item.titulo || ""}</h3>
+            ${item.comentario ? `<p>${item.comentario.replace(/\n/g, "<br>")}</p>` : ""}
+            ${item.enlace ? `<p><a href="${item.enlace}" target="_blank" rel="noopener">📄 Ver fallo completo</a></p>` : ""}
+            ${item.palabras_clave?.length ? `<p class="muted" style="font-size:13px">Palabras clave: ${item.palabras_clave.join(", ")}</p>` : ""}
+          </div>
+        `;
+        jurWrap.appendChild(art);
+      });
+    }
+
+    // --- Actualidad ---
+    if (actList && Array.isArray(data.actualidad)) {
+      data.actualidad.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${item.link || item.enlace}" target="_blank" rel="noopener">${item.titulo}</a>`;
+        actList.appendChild(li);
+      });
+    }
+  } catch (e) {
+    console.warn("Error cargando JSON:", e);
+  }
+})();
+</script>
 </body>
 </html>
