@@ -53,10 +53,10 @@ h2{font-size:28px}
 }
 #inicio::before{
   content:"";position:absolute;inset:0;
-  background-image:url("oficina.jpg");
+  background-image:url("oficina.jpeg");
   background-repeat:no-repeat;
-  background-size:cover;        /* ocupa toda la pantalla */
-  background-position:center 28%;/* ajusta foco en reloj */
+  background-size:cover;
+  background-position:center 40%;
   z-index:-2;
 }
 #inicio::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:-1}
@@ -78,15 +78,12 @@ h2{font-size:28px}
 .area{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px}
 
 /* CONTACTO */
-#contacto::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("Morro de Arica.JPG");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 40%; /* 👈 mueve el foco hacia abajo */
-  z-index: -2;
+#contacto{
+  color:#fff;
+  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+             url("Morro%20de%20Arica.JPG") no-repeat fixed;
+  background-size:cover;
+  background-position:center 40%; /* 👈 ahora enfocado en el Morro */
 }
 #contacto .overlay{max-width:900px;margin:0 auto;background:rgba(0,0,0,.35);padding:20px;border-radius:14px}
 #contacto a{color:#fff;text-decoration:underline}
@@ -140,7 +137,7 @@ h2{font-size:28px}
       <div class="card">
         <div class="card-body">
           <p><strong>Georgette Mora</strong>, abogada litigante con más de ocho años de experiencia en Familia, Penal y Civil. Acompañamiento jurídico con enfoque práctico y humano.</p>
-          <p class="muted">Diplomados: Litigación Oral; Derecho Procesal Penal y Derecho Penal.</p>
+          <p class="muted">Diplomados: Litigación Oral; Violencia Intrafamiliar y Medidas de Protección; Derecho de Familia Avanzado.</p>
           <div class="sep"></div>
           <p><strong>Oferta de valor:</strong> preparación exhaustiva, escritos precisos y defensa estratégica orientada a resultados.</p>
         </div>
@@ -155,8 +152,8 @@ h2{font-size:28px}
     <h2>Áreas de práctica</h2>
     <div class="grid-areas">
       <div class="area"><h3>Familia</h3><p>Medidas de protección; cuidado personal; pensión de alimentos; divorcio; adopción.</p></div>
-      <div class="area"><h3>Penal</h3><p>Defensa; procedimientos abreviado y simplificado; salidas alternativas, querella criminal recursos.</p></div>
-      <div class="area"><h3>Civil</h3><p>Responsabilidad contractual y extracontractual; juicio ordinario, mínima, menor y mayor cuantía, juicio ejecutivos; arrendamiento, cambio de nombre, interdicciones.</p></div>
+      <div class="area"><h3>Penal</h3><p>Defensa en investigación y juicio; procedimientos abreviados; recursos.</p></div>
+      <div class="area"><h3>Civil</h3><p>Responsabilidad contractual y extracontractual; juicios ejecutivos; arrendamiento.</p></div>
       <div class="area"><h3>VIF</h3><p>Denuncias, medidas cautelares, seguimiento y cumplimiento.</p></div>
     </div>
   </div>
@@ -166,7 +163,7 @@ h2{font-size:28px}
 <section id="jurisprudencia">
   <div class="container">
     <h2>Jurisprudencia comentada</h2>
-    <!-- El script insertará aquí -->
+    <!-- Aquí se cargará desde contenido.json -->
   </div>
 </section>
 
@@ -177,7 +174,7 @@ h2{font-size:28px}
     <article class="card">
       <div class="card-body">
         <ul>
-          <!-- El script insertará aquí -->
+          <!-- Aquí se cargará desde contenido.json -->
         </ul>
       </div>
     </article>
@@ -209,80 +206,40 @@ h2{font-size:28px}
 
 <!-- SCRIPT para cargar JSON -->
 <script>
-async function cargarContenido(){
-  try{
-    const resp = await fetch("contenido.json");
-    const data = await resp.json();
+(async () => {
+  const url = "https://raw.githubusercontent.com/Georgette888/Sitio-Web-Georgette/main/contenido.json?_=" + Date.now();
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error("No se pudo leer contenido.json");
+    const data = await res.json();
 
     // Jurisprudencia
-    const jurDiv=document.querySelector("#jurisprudencia .container");
+    const jurWrap=document.querySelector("#jurisprudencia .container");
     data.jurisprudencia.forEach(item=>{
       const art=document.createElement("article");
       art.className="card";
       art.innerHTML=`
         <div class="card-body">
           <h3>${item.titulo}</h3>
-          <p>${item.texto}</p>
-          ${item.enlace ? `<p><a href="${item.enlace}" target="_blank">Ver fallo completo</a></p>` : ""}
+          ${item.comentario ? `<p>${item.comentario.replace(/\n/g,"<br>")}</p>` : ""}
+          ${item.enlace ? `<p><a href="${item.enlace}" target="_blank" rel="noopener">📄 Ver fallo completo</a></p>` : ""}
+          ${item.palabras_clave?.length ? `<p class="muted" style="font-size:13px">Palabras clave: ${item.palabras_clave.join(", ")}</p>` : ""}
         </div>`;
-      jurDiv.appendChild(art);
+      jurWrap.appendChild(art);
     });
 
     // Actualidad
     const actDiv=document.querySelector("#actualidad .container ul");
     data.actualidad.forEach(item=>{
       const li=document.createElement("li");
-      li.innerHTML=`<a href="${item.link}" target="_blank">${item.titulo}</a>`;
+      li.innerHTML=`<a href="${item.link || item.enlace}" target="_blank" rel="noopener">${item.titulo}</a>`;
       actDiv.appendChild(li);
     });
-
-  }catch(e){console.error("Error al cargar contenido.json",e);}
-}
-cargarContenido();
-</script>
-
-  <script>
-(async () => {
-  // Usa la URL RAW para evitar problemas de ruta/caché
-  const url = "https://raw.githubusercontent.com/Georgette888/Sitio-Web-Georgette/main/contenido.json?_=" + Date.now();
-
-  const jurWrap = document.querySelector("#jurisprudencia .container");
-  const actList = document.querySelector("#actualidad .container ul");
-
-  try {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) throw new Error("No pude leer contenido.json");
-    const data = await res.json();
-
-    // --- Jurisprudencia ---
-    if (jurWrap && Array.isArray(data.jurisprudencia)) {
-      data.jurisprudencia.forEach(item => {
-        const art = document.createElement("article");
-        art.className = "card";
-        art.innerHTML = `
-          <div class="card-body">
-            <h3>${item.titulo || ""}</h3>
-            ${item.comentario ? `<p>${item.comentario.replace(/\n/g, "<br>")}</p>` : ""}
-            ${item.enlace ? `<p><a href="${item.enlace}" target="_blank" rel="noopener">📄 Ver fallo completo</a></p>` : ""}
-            ${item.palabras_clave?.length ? `<p class="muted" style="font-size:13px">Palabras clave: ${item.palabras_clave.join(", ")}</p>` : ""}
-          </div>
-        `;
-        jurWrap.appendChild(art);
-      });
-    }
-
-    // --- Actualidad ---
-    if (actList && Array.isArray(data.actualidad)) {
-      data.actualidad.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="${item.link || item.enlace}" target="_blank" rel="noopener">${item.titulo}</a>`;
-        actList.appendChild(li);
-      });
-    }
   } catch (e) {
     console.warn("Error cargando JSON:", e);
   }
 })();
 </script>
+
 </body>
 </html>
