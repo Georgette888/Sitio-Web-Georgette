@@ -1,339 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgette Mora - Abogada</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Georgette Mora – Abogada</title>
+
   <style>
-    /* Importar tu fuente Arinttika */
-    @font-face {
-      font-family: 'Arinttika';
-      src: url('fonts/Arinttika Signature.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
+    @font-face{
+      font-family:'Arinttika';
+      src:url('ArinttikaSignature.ttf') format('truetype');
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    :root{
+      --green:#0f4f45;
+      --green-soft:#1d6a5c;
+      --gold:#d4af37;
+      --bg:#f7f8f9;
+      --text:#1b1f24;
+      --muted:#6b7280;
+      --card:#ffffff;
     }
-    header {
-      background-color: #004d40;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);padding-top:64px}
+
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:var(--green);border-bottom:3px solid var(--gold);
+      display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 12px
     }
-    header nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+    nav a{color:#fff;text-decoration:none;font-weight:700}
+    nav a:hover{text-decoration:underline}
+
+    section{padding:64px 16px;max-width:1100px;margin:0 auto}
+    h2{margin:0 0 12px;color:var(--green)}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);overflow:hidden}
+    .card-body{padding:18px}
+
+    #inicio{
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      color:#fff;text-align:center;position:relative;overflow:hidden;
+      background:url('oficina.jpg') no-repeat center 40% / cover;
     }
-    section {
-      padding: 80px 20px 40px;
-      min-height: 100vh;
+    #inicio::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+    #inicio > *{position:relative;z-index:1}
+    .nombre{
+      font-family:'Arinttika',cursive;
+      font-size:4rem;line-height:1;margin:0;
     }
-    /* Portada */
-    .portada {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: url("oficina.jpeg") no-repeat center center/cover;
-      height: 100vh;
-      text-align: center;
-      color: white;
+    .claim{margin:10px 0 0;font-size:1.25rem}
+    .pill{
+      background:rgba(0,0,0,.45);display:inline-block;margin-top:10px;
+      padding:10px 16px;border-radius:10px;font-weight:600
     }
-    .nombre {
-      font-family: 'Arinttika', cursive;
-      font-size: 4rem;
-      margin: 0;
+
+    #quien-soy .grid{display:grid;grid-template-columns:260px 1fr;gap:22px;align-items:start}
+    #quien-soy img{width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+
+    #areas{
+      color:#fff;border-radius:16px;
+      background:linear-gradient(rgba(15,79,69,.75),rgba(15,79,69,.75)),
+                 url("Lago%20Chungara.JPG") center/cover no-repeat fixed;
     }
-    .subtitulo {
-      font-size: 1.5rem;
-      margin-top: 10px;
+    .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .areas .box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:14px}
+
+    .paper{background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+
+    #contacto{
+      color:#e6f4ea;border-radius:16px;
+      background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+                 url("Morro%20de%20Arica.JPG") center 40%/cover no-repeat fixed;
     }
-    h2 {
-      color: #004d40;
+    #contacto .wrap{max-width:980px;margin:0 auto;background:rgba(0,0,0,.35);padding:18px;border-radius:14px}
+    #contacto a{color:#e6f4ea;text-decoration:underline}
+
+    form{
+      margin-top:16px;background:#fff;color:#1b1f24;border-radius:12px;overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,.15)
     }
-    /* Contacto */
-    .contacto {
-      background: url("Morro de Arica.JPG") no-repeat center center/cover;
-      color: #e0f2f1; /* verde suave */
-      text-align: center;
-      padding: 60px 20px;
+    .form-body{padding:16px;display:grid;gap:12px}
+    label{font-weight:600}
+    input,textarea{
+      width:100%;padding:10px;border:1px solid #dcdfe3;border-radius:8px;font-size:15px
     }
-    .contacto a {
-      color: #b2dfdb;
-      text-decoration: none;
+    .btn{
+      background:var(--gold);color:#1b1f24;border:none;border-radius:10px;
+      padding:10px 16px;font-weight:700;cursor:pointer
     }
-    form {
-      max-width: 400px;
-      margin: 20px auto;
-      display: flex;
-      flex-direction: column;
-    }
-    form input, form textarea, form button {
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .pago {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .pago a {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #00796b;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    footer {
-      background-color: #004d40;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
+    .btn:hover{filter:brightness(.95)}
+
+    footer{background:var(--green);color:#fff;text-align:center;padding:20px;margin-top:40px}
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#quien-soy">Quién soy</a>
-      <a href="#areas">Áreas de práctica</a>
-      <a href="#jurisprudencia">Jurisprudencia comentada</a>
-      <a href="#actualidad">Actualidad Legal</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
 
-  <!-- Portada -->
-  <section id="inicio" class="portada">
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#quien-soy">Quién soy</a>
+    <a href="#areas">Áreas de práctica</a>
+    <a href="#jurisprudencia">Jurisprudencia</a>
+    <a href="#actualidad">Actualidad</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio">
     <h1 class="nombre">Georgette Mora</h1>
-    <p class="subtitulo">Abogada - Defensa clara y cercana para decisiones seguras</p>
+    <p class="claim">Defensa clara y cercana para decisiones seguras</p>
+    <p class="pill">Atención remota a nivel nacional y presencial en Arica</p>
   </section>
 
   <section id="quien-soy">
     <h2>Quién soy</h2>
-    <p>Soy Georgette Mora, abogada con más de 8 años de experiencia en litigación en tribunales de familia, civil, laboral y penal. 
-       Cuento con diplomados en litigación oral, derecho penal y procesal penal, y derecho de familia. 
-       Mi compromiso es brindar una <strong>defensa clara y cercana para decisiones seguras</strong>, 
-       con atención remota a nivel nacional y presencial en Arica.</p>
+    <div class="grid">
+      <img src="IMG_9405.jpg" alt="Georgette Mora">
+      <div>
+        <p><strong>Georgette Mora</strong>, abogada litigante con más de 8 años de experiencia en Derecho de Familia, Penal, Civil y Laboral. Diplomada en Litigación Oral; Violencia Intrafamiliar y Medidas de Protección; Derecho de Familia Avanzado.</p>
+        <p class="muted">Defensa estratégica y acompañamiento cercano para decisiones seguras.</p>
+      </div>
+    </div>
   </section>
 
   <section id="areas">
     <h2>Áreas de práctica</h2>
-    <ul>
-      <li>Derecho de Familia</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Civil</li>
-      <li>Derecho Laboral (tutela laboral, juicio ordinario y monitorio)</li>
-    </ul>
-  </section>
-
-  <section id="jurisprudencia">
-    <h2>Jurisprudencia comentada</h2>
-    <h3>Corte de Apelaciones de Temuco, Rol N° 1554-2024</h3>
-    <p>Este fallo refuerza que en el procedimiento abreviado el juez de garantía no solo recibe la aceptación de hechos por parte del imputado, 
-       sino que debe verificar si los hechos y antecedentes fundantes configuran jurídicamente el delito imputado. 
-       Además, establece la posibilidad de interponer recursos de apelación por infracción de derecho cuando el juez realiza 
-       una interpretación errónea del tipo penal.</p>
-    <p><a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=..." target="_blank">Ver fallo completo</a></p>
-  </section>
-
-  <section id="actualidad">
-    <h2>Actualidad Legal</h2>
-    <p>Revisa la <a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley 21.760 de Adopción en Chile</a>.</p>
-  </section>
-
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
-    <p>📞 <a href="tel:+56993234860">+56 9 9323 4860</a></p>
-    <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
-
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo" required>
-      <textarea name="mensaje" rows="5" placeholder="Tu consulta..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-
-    <div class="pago">
-      <p>Realiza tus pagos de forma segura a través de Webpay:</p>
-      <a href="https://www.webpay.cl/" target="_blank">💳 Pagar con Webpay</a>
+    <div class="areas">
+      <div class="box"><strong>Familia:</strong> medidas de protección; cuidado personal; pensión de alimentos; divorcio; adopción.</div>
+      <div class="box"><strong>Penal:</strong> defensa en investigación y juicio; procedimientos abreviados; recursos.</div>
+      <div class="box"><strong>Civil:</strong> responsabilidad contractual/extracontractual; juicios ejecutivos; arrendamiento.</div>
+      <div class="box"><strong>Laboral:</strong> tutela laboral; juicio ordinario; monitorio.</div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Georgette Mora - Todos los derechos reservados</p>
-  </footer>
-</body>
-</html>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-    }
-    header {
-      background: url('oficina.jpeg') no-repeat center center/cover;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      margin: 0;
-      color: #fff;
-    }
-    header p {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-    nav {
-      background: #036f4a;
-      color: white;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px;
-      background: white;
-      margin: 20px auto;
-      max-width: 1000px;
-      border-radius: 10px;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #036f4a;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
-    input, textarea, button {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button {
-      background: #036f4a;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    footer {
-      background: #036f4a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <header id="inicio">
-    <h1>Georgette Mora</h1>
-    <p>Abogada - Defensa clara y cercana para decisiones seguras</p>
-  </header>
-
-  <nav>
-    <a href="#quien-soy">Quién soy</a>
-    <a href="#servicios">Áreas de práctica</a>
-    <a href="#jurisprudencia">Jurisprudencia comentada</a>
-    <a href="#actualidad">Actualidad legal</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="quien-soy">
-    <h2>Quién soy</h2>
-    <p>Soy Georgette Mora, abogada con más de 8 años de experiencia en litigación en tribunales de familia, civil y penal. 
-    Cuento con diplomados en litigación oral, derecho penal y procesal penal, y derecho de familia. 
-    Mi compromiso es brindar una defensa cercana, con atención remota a nivel nacional y presencial en Arica.</p>
-  </section>
-
-  <section id="servicios">
-    <h2>Áreas de práctica</h2>
-    <ul>
-      <li>Derecho de Familia</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Civil</li>
-      <li>Derecho Laboral (tutela laboral, juicio ordinario y monitorio)</li>
-    </ul>
-  </section>
-
   <section id="jurisprudencia">
     <h2>Jurisprudencia comentada</h2>
-    <p><strong>Corte de Apelaciones de Temuco, Rol N° 1554-2024</strong></p>
-    <p>Este fallo refuerza que en el procedimiento abreviado el juez de garantía no solo recibe la aceptación de hechos por parte del imputado, 
-    sino que debe verificar si los hechos y antecedentes fundantes configuran jurídicamente el delito imputado. 
-    Además, establece la posibilidad de interponer recursos de apelación por infracción de derecho cuando el juez realiza 
-    una interpretación errónea del tipo penal. 
-    <a href="https://oficinajudicialvirtual.pjud.cl/ADIR_871/apelaciones/documentos/docCausaApelaciones.php?valorDoc=..." target="_blank">Ver fallo completo</a></p>
+    <article class="paper">
+      <h3>Corte de Apelaciones de Temuco, Rol N° 1554-2024</h3>
+      <p>En procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de investigación configuren jurídicamente el delito. La aceptación no sustituye el control judicial. La Corte acogió apelación por error de derecho y dictó condena.</p>
+      <p class="muted" style="font-size:13px">Palabras clave: procedimiento abreviado, apelación, error de derecho.</p>
+    </article>
   </section>
 
   <section id="actualidad">
     <h2>Actualidad legal</h2>
-    <p>Revisa la <a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley 21.760 de Adopción en Chile</a>.</p>
+    <div class="paper">
+      <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank" rel="noopener">Ley 21.760 de Adopción en Chile</a></p>
+    </div>
   </section>
 
   <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Oficina: Manuel Blanco Encalada 938, Arica, Chile</p>
-    <p>Teléfono: <a href="tel:+56993234860">+56 9 9323 4860</a></p>
-    <p>Email: <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
+      <p>📞 <a href="tel:+56993234860">+56 9 9323 4860</a></p>
+      <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
 
-    <!-- Formulario -->
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo" required>
-      <textarea name="mensaje" rows="5" placeholder="Tu consulta..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+      <form name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
+        <input type="hidden" name="form-name" value="consulta" />
+        <p style="display:none"><label>No completar <input name="bot-field" /></label></p>
 
-    <!-- Botón de pago Webpay -->
-    <h3>Pago en línea</h3>
-    <p>Realiza tus pagos de forma segura a través de Webpay:</p>
-    <a href="https://www.webpay.cl/" target="_blank">
-      <button style="background-color:#036f4a; color:white; padding:12px 20px; border:none; border-radius:6px; cursor:pointer; font-size:1.1rem;">
-        💳 Pagar con Webpay
-      </button>
-    </a>
+        <div class="form-body">
+          <div>
+            <label>Nombre y apellido</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre completo" />
+          </div>
+          <div>
+            <label>Correo electrónico</label>
+            <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
+          </div>
+          <div>
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" placeholder="+56 9 ...." />
+          </div>
+          <div>
+            <label>Consulta</label>
+            <textarea name="mensaje" rows="5" required placeholder="Cuéntame brevemente tu caso"></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar consulta</button>
+        </div>
+      </form>
+
+      <!-- Botón de pago Webpay -->
+      <h3>Pago en línea</h3>
+      <p>Realiza tus pagos de forma segura a través de Webpay:</p>
+      <a href="https://www.webpay.cl/" target="_blank" rel="noopener">
+        <button type="button" style="background-color:#036f4a; color:white; padding:12px 20px; border:none; border-radius:6px; cursor:pointer; font-size:1.1rem;">
+          💳 Pagar con Webpay
+        </button>
+      </a>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Georgette Mora - Todos los derechos reservados</p>
+    <p>© 2025 Georgette Mora – Abogada</p>
   </footer>
 </body>
 </html>
