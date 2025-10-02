@@ -52,23 +52,55 @@ h2{font-size:28px}
 .card-body{padding:18px}
 .sep{height:1px;background:#e6e7ea;margin:16px 0}
 
-/* INICIO (portada) – mostrar el reloj completo y centrado */
+/* PORTADA: ocupa toda la pantalla, con foco en el reloj */
 #inicio{
-  min-height:85vh; display:flex; align-items:center; justify-content:center;
-  background-color:#000; /* respaldo para franjas */
-  background-image:url("oficina.jpg");
-  background-repeat:no-repeat;
-  background-position:center center;   /* centrado */
-  background-size:contain;             /* imagen completa (reloj entero) */
-  color:#fff; text-align:center; position:relative;
+  min-height:92vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;         /* por si hay recorte en móvil */
 }
-#inicio .panel{
-  background:rgba(0,0,0,.45);
-  padding:28px 24px; border-radius:14px; backdrop-filter: blur(2px);
-}
-.claim{font-size:20px;margin:6px 0 0}
-.subclaim{font-size:15px;margin:8px 0 0;color:#e8e8e8}
 
+/* La imagen como fondo real "cover" con foco ajustable */
+#inicio::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("oficina.jpg");    /* usa el nuevo JPG/PNG */
+  background-repeat:no-repeat;
+  background-size:cover;                  /* PORTADA: llena sin franjas */
+  background-position:50% 38%;            /* <-- foco en el reloj (ajustable) */
+  filter:none;
+  z-index:-2;
+}
+
+/* Capa oscura suave para legibilidad del texto */
+#inicio::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:-1;
+}
+
+/* Ajustes de foco según proporción de pantalla */
+@media (max-aspect-ratio: 3/4){          /* pantallas muy verticales (móvil) */
+  #inicio::before{ background-position:50% 25%; }  /* sube un poco el foco */
+}
+@media (min-aspect-ratio: 16/9){         /* pantallas muy apaisadas */
+  #inicio::before{ background-position:50% 45%; }  /* baja un poco el foco */
+}
+
+/* Panel de texto de tu hero (si lo usas) */
+#inicio .panel{
+  background:rgba(0,0,0,.35);
+  padding:28px 24px;
+  border-radius:14px;
+  backdrop-filter:blur(2px);
+}
 /* QUIÉN SOY */
 .qs-grid{display:grid;grid-template-columns:280px 1fr;gap:22px;align-items:start}
 .qs-grid img{width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
