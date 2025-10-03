@@ -135,8 +135,7 @@
   <!-- JURISPRUDENCIA (dinámica con fallback) -->
   <section id="jurisprudencia">
     <h2>Jurisprudencia comentada</h2>
-
-    <!-- Contenedor a poblar -->
+   <p id="estado-juris" class="muted" style="margin:6px 0 12px"></p>
     <div id="lista-juris" class="paper" style="display:grid; gap:16px;">
       <p class="muted">Cargando jurisprudencia…</p>
     </div>
@@ -205,17 +204,60 @@
     <p>© 2025 Georgette Mora – Abogada</p>
   </footer>
 
- {
-  "jurisprudencia": [
-    {
-      "titulo": "Procedimiento abreviado y control judicial del derecho",
-      "rol": "Corte de Apelaciones de Temuco, Rol N° 1554-2024",
-      "fecha": "2024-09-15",
-      "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado, pero lo absolvió respecto de otro, al estimar que este último no configuraba delito. La apelación se fundó en que el tribunal de primera instancia incurrió en error de derecho, al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente. La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.\n\nEl fallo enfatiza que, incluso en procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de la investigación encuadren jurídicamente en el delito imputado. La aceptación del imputado no reemplaza el control judicial sobre la tipicidad y subsunción de los hechos.\n\nEste criterio releva dos aspectos centrales:\n1. Control judicial del derecho aplicable.\n2. Recurso de apelación por error de derecho.\n\nCon ello, la Corte refuerza que el procedimiento abreviado no es una instancia de mera homologación de acuerdos, sino que exige un control jurídico efectivo de la adecuación de los hechos al derecho.",
-      "palabras_clave": ["procedimiento abreviado", "apelación", "error de derecho", "control judicial"],
-      "enlace_fallo": "fallo-Temuco-1554-2024.pdf"
+   <script>
+  (async function cargarJurisprudencia() {
+    const contenedor = document.getElementById('lista-juris');
+    const estado = document.getElementById('estado-juris');
+
+    function render(items, fuente) {
+      if (estado) estado.textContent = 'Fuente: ' + fuente;
+      if (!items || !items.length) {
+        contenedor.innerHTML = '<p class="muted">Aún no hay comentarios de jurisprudencia publicados.</p>';
+        return;
+      }
+      items.sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+      contenedor.innerHTML = items.map(it => {
+        const titulo = it.titulo || 'Jurisprudencia';
+        const rol = it.rol ? ` – <strong>${it.rol}</strong>` : '';
+        const fecha = it.fecha ? new Date(it.fecha).toLocaleDateString('es-CL') : '';
+        const resumen = it.resumen || '';
+        const tags = Array.isArray(it.palabras_clave) ? it.palabras_clave : [];
+        const enlace = it.enlace_fallo;
+
+        return `
+          <article class="paper">
+            <h3 style="margin-top:0">${titulo}${rol}</h3>
+            ${fecha ? `<p class="muted" style="margin:0 0 8px">${fecha}</p>` : ''}
+            <p>${resumen}</p>
+            ${tags.length ? `<p class="muted" style="font-size:13px;margin:8px 0">Palabras clave: ${tags.join(', ')}</p>` : ''}
+            ${enlace ? `<p style="margin:8px 0"><a href="${enlace}" target="_blank" rel="noopener">Ver fallo / documento</a></p>` : ''}
+          </article>
+        `;
+      }).join('');
     }
-  ]
-}
+
+    try {
+      const r = await fetch('contenido.json', { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+      const items = Array.isArray(data) ? data : (data.jurisprudencia || []);
+      if (!items.length) throw new Error('JSON vacío');
+      return render(items, 'contenido.json');
+    } catch (e) {
+      console.warn('Fallo contenido.json → fallback:', e);
+    }
+
+    try {
+      const raw = document.getElementById('contenido-json-fallback')?.textContent || '{}';
+      const data = JSON.parse(raw);
+      const items = Array.isArray(data) ? data : (data.jurisprudencia || []);
+      return render(items, 'fallback (index.html)');
+    } catch (e2) {
+      contenedor.innerHTML = `<p>No pudimos cargar jurisprudencia.</p>`;
+    }
+  })();
+  </script>
+</body>
+</html>
 </body>
 </html>
