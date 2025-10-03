@@ -8,14 +8,13 @@
   <meta name="theme-color" content="#0f4f45" />
 
   <style>
-    /* ——— Fuente firma ——— */
+    /* Fuente firma */
     @font-face{
       font-family:'Arinttika';
       src:url('ArinttikaSignature.ttf') format('truetype');
       font-weight:400;font-style:normal;font-display:swap;
     }
 
-    /* ——— Variables y base ——— */
     :root{
       --navH: 68px;
       --green:#0f4f45; --gold:#d4af37;
@@ -29,15 +28,15 @@
       margin:0; padding-top:var(--navH);
       scroll-snap-type:y mandatory; overscroll-behavior:contain;
     }
-    section, header{scroll-snap-align:start;}
-    :target{scroll-margin-top:calc(var(--navH) + 16px)}
+    section, header{ scroll-snap-align:start; }
+    :target{ scroll-margin-top: calc(var(--navH) + 16px); }
 
     h1,h2{margin:0 0 12px}
     h2{color:var(--green)}
     .muted{color:var(--muted)}
     .paper{background:var(--paper);border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
 
-    /* ——— NAV ——— */
+    /* NAV */
     nav{
       position:fixed;top:0;left:0;right:0;z-index:1000;
       background:var(--green);border-bottom:3px solid var(--gold);
@@ -46,7 +45,7 @@
     nav a{color:#fff;text-decoration:none;font-weight:700}
     nav a:hover{text-decoration:underline}
 
-    /* ——— Secciones por defecto ——— */
+    /* Secciones */
     section{
       min-height:calc(100vh - var(--navH));
       padding:64px 16px;
@@ -54,7 +53,7 @@
       margin:0 auto;
     }
 
-    /* ——— INICIO (hero) ——— */
+    /* INICIO (hero) */
     #inicio{
       position:relative; color:#fff; text-align:center;
       min-height:calc(100vh - var(--navH));
@@ -68,11 +67,11 @@
     .claim{margin-top:10px;font-size:1.2rem}
     .pill{margin-top:10px;display:inline-block;background:rgba(0,0,0,.45);padding:10px 16px;border-radius:10px;font-weight:600}
 
-    /* ——— QUIÉN SOY ——— */
+    /* QUIÉN SOY */
     #quien-soy .qs-grid{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start}
     #quien-soy img{width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
 
-    /* ——— ÁREAS (full-bleed) ——— */
+    /* ÁREAS (full-bleed) */
     #areas{
       max-width:none;width:100%;margin:0;padding:64px 0;
       min-height:calc(100vh - var(--navH)); color:#fff;
@@ -84,7 +83,7 @@
     .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:10px}
     .areas .box{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:14px}
 
-    /* ——— JURISPRUDENCIA ——— */
+    /* JURISPRUDENCIA */
     #jurisprudencia .col { display: grid; gap: 20px; }
     .jur-card{
       background:#fff; border-radius:14px; padding:22px; text-align:left;
@@ -110,12 +109,12 @@
     }
     .btn-link:hover{filter:brightness(.95)}
 
-    /* ——— DATOS ÚTILES ——— */
+    /* DATOS ÚTILES */
     #utiles .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
     #utiles a{display:block;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e7e7e7;box-shadow:0 6px 18px rgba(0,0,0,.05);text-decoration:none;color:var(--text)}
     #utiles a:hover{border-color:#dcdcdc}
 
-    /* ——— CONTACTO (full-bleed) ——— */
+    /* CONTACTO (full-bleed) */
     #contacto{
       max-width:none;width:100%;margin:0;padding:64px 0;
       min-height:calc(100vh - var(--navH)); color:var(--contactText);
@@ -126,7 +125,7 @@
     #contacto .wrap{max-width:980px;margin:0 auto;background:rgba(0,0,0,.35);padding:18px;border-radius:14px}
     #contacto a{color:var(--contactText);text-decoration:underline}
 
-    /* ——— FORM ——— */
+    /* FORM */
     form{margin-top:16px;background:#fff;color:#1b1f24;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.15)}
     .form-body{padding:16px;display:grid;gap:12px}
     label{font-weight:600}
@@ -134,7 +133,7 @@
     .btn{background:var(--gold);color:#1b1f24;border:none;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer}
     .btn:hover{filter:brightness(.95)}
 
-    /* ——— WhatsApp flotante ——— */
+    /* WhatsApp flotante */
     .wa{position:fixed;right:18px;bottom:18px;z-index:1100;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
     .wa svg{width:28px;height:28px;fill:#fff}
 
@@ -202,7 +201,7 @@
       <div class="paper"><p class="muted">Cargando jurisprudencia…</p></div>
     </div>
 
-    <!-- Fallback embebido por si contenido.json falla (opcional) -->
+    <!-- Fallback embebido (por si contenido.json falla) -->
     <script type="application/json" id="contenido-json-fallback">
     {
       "jurisprudencia": [
@@ -245,8 +244,8 @@
       <p>📞 <a href="tel:+56993234860">+56 9 9323 4860</a></p>
       <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
 
-      <!-- Formulario Netlify: gracias en la misma página -->
-      <form id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <!-- Formulario Netlify con fallback -->
+      <form id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
         <input type="hidden" name="form-name" value="consulta" />
         <p style="display:none"><label>No completar <input name="bot-field" /></label></p>
 
@@ -260,11 +259,11 @@
         </div>
       </form>
 
-      <!-- Mensaje de gracias -->
+      <!-- Mensaje gracias en la misma página -->
       <div id="gracias-inmediato" class="paper" style="display:none; margin-top:16px;">
         <h3 style="margin-top:0;color:#0f4f45">¡Gracias! Tu consulta fue enviada.</h3>
         <p>Me pondré en contacto contigo a la brevedad.</p>
-        <p class="muted" style="font-size:13px">Si prefieres, puedes escribirme directamente a <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a> o WhatsApp.</p>
+        <p class="muted" style="font-size:13px">Si prefieres, puedes escribirme a <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a> o por WhatsApp.</p>
       </div>
     </div>
   </section>
@@ -278,10 +277,9 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.27-.14-1.56-.77-1.8-.86-.24-.09-.41-.14-.58.14-.17.27-.67.86-.82 1.04-.15.18-.3.2-.57.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.46.13-.15.17-.27.25-.45.08-.18.05-.34-.02-.48-.07-.14-.58-1.4-.8-1.92-.21-.51-.43-.44-.58-.45l-.5-.01c-.18 0 -.47.07-.72.34-.24.27-.95.93-.95 2.26 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.06.64.28 1.14.45 1.53.57.64.2 1.22.17 1.68.1.51-.07 1.56-.64 1.78-1.26.22-.62.22-1.15.15-1.26-.06-.11-.24-.18-.5-.31zM16.03 4C9.95 4 5 8.94 5 15.01c0 2.42.7 4.67 1.92 6.56L5 28l6.64-1.74a11.01 11.01 0 0 0 4.4.89c6.07 0 11.03-4.95 11.03-11.01S22.1 4 16.03 4z"/></svg>
   </a>
 
-  <!-- ========== SCRIPTS ÚNICOS ========== -->
-
-  <!-- Jurisprudencia: carga desde contenido.json -->
+  <!-- Scripts únicos -->
   <script>
+  /* Jurisprudencia desde contenido.json con fallback embebido */
   (function cargarJurisprudencia(){
     const cont = document.getElementById('lista-juris');
 
@@ -345,7 +343,6 @@
         const items = Array.isArray(data) ? data : (data.jurisprudencia || []);
         render(items);
       }catch(e){
-        // Fallback embebido
         try{
           const raw = document.getElementById('contenido-json-fallback')?.textContent || '{}';
           const data = JSON.parse(raw);
@@ -366,46 +363,41 @@
   })();
   </script>
 
-  <!-- Formulario Netlify: gracias en la misma página -->
   <script>
+  /* Formulario Netlify: gracias en la misma página + fallback a /gracias.html */
   (function () {
     const form = document.getElementById('form-consulta');
     const gracias = document.getElementById('gracias-inmediato');
     if (!form || !gracias) return;
 
-    // Serializa como application/x-www-form-urlencoded (fiable para Netlify Forms)
     function encode(data) {
       return Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
     }
 
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
+    form.addEventListener('submit', async function onSubmit(e) {
+      e.preventDefault(); // Intento "en sitio"
       const data = { 'form-name': form.getAttribute('name') || 'consulta' };
       Array.from(form.elements).forEach(el => {
         if (!el.name) return;
-        if ((el.type === 'checkbox' || el.type === 'radio')) {
-          if (el.checked) data[el.name] = el.value;
-        } else {
-          data[el.name] = el.value;
-        }
+        if ((el.type === 'checkbox' || el.type === 'radio')) { if (el.checked) data[el.name] = el.value; }
+        else { data[el.name] = el.value; }
       });
 
       try {
-        const r = await fetch('/', {
+        const res = await fetch('/', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/html,application/xhtml+xml'
-          },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'text/html,application/xhtml+xml' },
           body: encode(data)
         });
-        if (!r.ok) throw new Error('Respuesta no OK: ' + r.status);
+        if (!res.ok) throw new Error('No OK: ' + res.status);
         form.style.display = 'none';
         gracias.style.display = 'block';
         form.reset();
       } catch (err) {
-        alert('No pudimos enviar tu consulta en este momento. Intenta nuevamente.');
-        console.error('Fallo envío Netlify:', err);
+        // Fallback seguro: dejamos que el navegador use action="/gracias.html"
+        console.warn('Fallo envío en sitio; redirijo al fallback:', err);
+        form.removeEventListener('submit', onSubmit);
+        form.submit();
       }
     });
   })();
