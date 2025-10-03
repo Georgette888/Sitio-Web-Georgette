@@ -25,7 +25,7 @@
     body{
       margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);
       background:var(--bg); padding-top:68px;
-      scroll-snap-type:y mandatory; /* secciones encajan a pantalla */
+      scroll-snap-type:y mandatory;
     }
     :target{scroll-margin-top:88px}
 
@@ -33,8 +33,7 @@
     nav{
       position:fixed;top:0;left:0;right:0;z-index:1000;
       background:var(--green);border-bottom:3px solid var(--gold);
-      display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
-      padding:10px 12px
+      display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 12px
     }
     nav a{color:#fff;text-decoration:none;font-weight:700}
     nav a:hover{text-decoration:underline}
@@ -42,9 +41,8 @@
     /* SECCIONES */
     section{
       padding:64px 16px;max-width:1100px;margin:0 auto;
-      min-height:calc(100vh - 68px); /* para que no asomen bordes */
-      scroll-snap-align:start;
-      display:block;
+      min-height:calc(100vh - 68px);
+      scroll-snap-align:start;display:block;
     }
     h1,h2{margin:0 0 12px}
     h2{color:var(--green)}
@@ -77,7 +75,7 @@
     .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .areas .box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:14px}
 
-    /* JURISPRUDENCIA (estilo tipo ficha larga) */
+    /* JURISPRUDENCIA (fichas ordenadas) */
     #jurisprudencia .col{display:grid;gap:18px}
     .jur-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
     .jur-head{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
@@ -166,7 +164,7 @@
     </div>
   </section>
 
-  <!-- JURISPRUDENCIA (dinámica con formato de ficha) -->
+  <!-- JURISPRUDENCIA (dinámica) -->
   <section id="jurisprudencia" aria-label="Jurisprudencia comentada">
     <h2>Jurisprudencia comentada</h2>
     <div id="lista-juris" class="col">
@@ -181,7 +179,7 @@
           "titulo": "Procedimiento abreviado y control judicial del derecho",
           "rol": "Corte de Apelaciones de Temuco, Rol N° 1554-2024",
           "fecha": "2024-09-15",
-          "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación ... (resumen abreviado)",
+          "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación ...",
           "palabras_clave": ["procedimiento abreviado","apelación","error de derecho","control judicial"],
           "enlace_fallo": "fallo-Temuco-1554-2024.pdf"
         }
@@ -216,18 +214,21 @@
       <p>📞 <a href="tel:+56993234860">+56 9 9323 4860</a></p>
       <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
 
-      <!-- Formulario Netlify con reCAPTCHA -->
+      <!-- Formulario Netlify (detecto garantizado) -->
       <form name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
         <input type="hidden" name="form-name" value="consulta" />
         <p style="display:none"><label>No completar <input name="bot-field" /></label></p>
 
         <div class="form-body">
-          <div><label for="f-nombre">Nombre</label><input id="f-nombre" type="text" name="nombre" required></div>
-          <div><label for="f-email">Correo</label><input id="f-email" type="email" name="email" required></div>
-          <div><label for="f-telefono">Teléfono</label><input id="f-telefono" type="tel" name="telefono"></div>
-          <div><label for="f-msg">Consulta</label><textarea id="f-msg" name="mensaje" rows="5" required></textarea></div>
+          <p><label for="f-nombre">Nombre:<br><input id="f-nombre" type="text" name="nombre" required></label></p>
+          <p><label for="f-email">Correo:<br><input id="f-email" type="email" name="email" required></label></p>
+          <p><label for="f-telefono">Teléfono:<br><input id="f-telefono" type="tel" name="telefono"></label></p>
+          <p><label for="f-msg">Consulta:<br><textarea id="f-msg" name="mensaje" rows="5" required></textarea></label></p>
+
+          <!-- Anti-spam reCAPTCHA (activar en Netlify → Site settings → Forms) -->
           <div data-netlify-recaptcha="true"></div>
-          <button type="submit" class="btn">Enviar consulta</button>
+
+          <p><button type="submit" class="btn">Enviar consulta</button></p>
         </div>
       </form>
     </div>
@@ -244,7 +245,7 @@
     </svg>
   </a>
 
-  <!-- Script: carga contenido.json con plantilla tipo ficha -->
+  <!-- Script: carga contenido.json con formato de ficha -->
   <script>
   (async function cargarJurisprudencia(){
     const cont = document.getElementById('lista-juris');
@@ -254,17 +255,14 @@
         cont.innerHTML = '<div class="paper"><p class="muted">Aún no hay comentarios de jurisprudencia publicados.</p></div>';
         return;
       }
-      // ordena por fecha desc (si hay fecha)
       items.sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
-
       cont.innerHTML = items.map(it=>{
         const titulo = it.titulo || 'Jurisprudencia';
         const rol = it.rol || '';
         const fecha = it.fecha ? new Date(it.fecha).toLocaleDateString('es-CL') : '';
-        const resumen = (it.resumen||'').replace(/\n{2,}/g,'</p><p>'); // respeta párrafos
+        const resumen = (it.resumen||'').replace(/\n{2,}/g,'</p><p>');
         const tags = Array.isArray(it.palabras_clave) ? it.palabras_clave : [];
         const enlace = it.enlace_fallo;
-
         return `
           <article class="jur-card">
             <header class="jur-head">
@@ -276,12 +274,10 @@
               ${tags.length ? `<p class="jur-keywords">Palabras clave: ${tags.join(', ')}</p>` : ''}
               ${enlace ? `<a class="btn-link" href="${enlace}" target="_blank" rel="noopener">Ver fallo</a>` : ''}
             </div>
-          </article>
-        `;
+          </article>`;
       }).join('');
     }
 
-    // 1) intenta contenido.json (externo)
     try{
       const r = await fetch('contenido.json', { cache:'no-store' });
       if(!r.ok) throw new Error('No se pudo cargar contenido.json ('+r.status+')');
@@ -292,8 +288,6 @@
     }catch(e){
       console.warn('Fallo contenido.json, uso fallback:', e);
     }
-
-    // 2) fallback embebido
     try{
       const raw = document.getElementById('contenido-json-fallback')?.textContent || '{}';
       const data = JSON.parse(raw);
