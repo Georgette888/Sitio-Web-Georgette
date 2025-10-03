@@ -1,177 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgette Mora – Abogada</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Georgette Mora – Abogada | Defensa en Tribunales</title>
+  <meta name="description" content="Georgette Mora, abogada litigante. Defensa clara y cercana para decisiones seguras. Atención remota a nivel nacional y presencial en Arica." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+    @font-face{
+      font-family:'Arinttika';
+      src:url('ArinttikaSignature.ttf') format('truetype');
     }
-    header {
-      background: url('reloj-portada.jpg') no-repeat center 40%/cover;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
+    :root{
+      --navH: 68px;
+      --green:#0f4f45; --gold:#d4af37;
+      --bg:#f7f8f9; --text:#1b1f24; --muted:#6b7280;
     }
-    nav {
-      background: #004d40;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text); background:var(--bg);
+      padding-top:var(--navH); scroll-snap-type:y mandatory;
     }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
+    section{
+      min-height:calc(100vh - var(--navH));
+      padding:60px 20px; scroll-snap-align:start;
+      max-width:1000px; margin:auto;
     }
-    section {
-      padding: 50px 20px;
-      background: white;
-      margin: 0 auto;
-      max-width: 900px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      margin-bottom: 40px;
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:var(--green);border-bottom:3px solid var(--gold);
+      display:flex;justify-content:center;gap:15px;padding:12px;
     }
-    h2 {
-      color: #004d40;
+    nav a{color:#fff;text-decoration:none;font-weight:700}
+    nav a:hover{text-decoration:underline}
+
+    /* Inicio */
+    #inicio{
+      background:url('oficina.jpg') no-repeat center 40%/cover;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      color:#fff;text-align:center;position:relative;
     }
-    .btn {
-      background-color: #036f4a;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
+    #inicio::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4)}
+    #inicio>*{position:relative;z-index:1}
+    .nombre{font-family:'Arinttika',cursive;font-size:3rem}
+    .claim{font-size:1.3rem;margin-top:10px}
+
+    /* Quién soy */
+    #quien-soy .qs-grid{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start}
+    #quien-soy img{width:100%;border-radius:12px}
+
+    /* Áreas */
+    #areas{
+      background:linear-gradient(rgba(15,79,69,.7),rgba(15,79,69,.7)),url("Lago%20Chungara.JPG") center/cover no-repeat;
+      color:#fff;border-radius:14px;
     }
+    .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
+    .areas .box{background:rgba(255,255,255,.1);padding:14px;border-radius:12px}
+
+    /* Jurisprudencia */
+    .jur-card{background:#fff;border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+
+    /* Datos útiles */
+    #utiles .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    #utiles a{background:#fff;padding:12px;border-radius:10px;text-decoration:none;color:var(--text);box-shadow:0 6px 18px rgba(0,0,0,.05)}
+
+    /* Contacto */
+    #contacto{
+      color:#fff;
+      background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("Morro%20de%20Arica.JPG") center 40%/cover no-repeat;
+      border-radius:14px;
+    }
+    .btn{background:var(--green);color:#fff;padding:10px 18px;border:none;border-radius:6px;cursor:pointer}
   </style>
 </head>
 <body>
 
-  <header id="inicio">
-    <h1 style="font-family:'Arinttika Signature', cursive; font-size:3rem;">Georgette Mora</h1>
-    <p>Defensa clara y cercana para decisiones seguras</p>
-  </header>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#quien-soy">Quién soy</a>
+  <a href="#areas">Áreas de práctica</a>
+  <a href="#jurisprudencia">Jurisprudencia</a>
+  <a href="#actualidad">Actualidad</a>
+  <a href="#utiles">Datos útiles</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
-  <nav>
-    <a href="#quien-soy">Quién soy</a>
-    <a href="#areas">Áreas de práctica</a>
-    <a href="#jurisprudencia">Jurisprudencia</a>
-    <a href="#actualidad">Actualidad Legal</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<section id="inicio">
+  <h1 class="nombre">Georgette Mora</h1>
+  <p class="claim">Defensa clara y cercana para decisiones seguras</p>
+  <p>Atención remota a nivel nacional y presencial en Arica</p>
+</section>
 
-  <section id="quien-soy">
-    <h2>Quién soy</h2>
-    <p>Soy abogada con más de 8 años de experiencia en litigación. Poseo diplomados en Litigación Oral, Derecho Penal y Procesal Penal, y Familia e Infancia. Atiendo causas a nivel nacional en modalidad remota, y presencialmente en Arica.</p>
-  </section>
+<section id="quien-soy">
+  <h2>Quién soy</h2>
+  <div class="qs-grid">
+    <img src="IMG_9405.jpg" alt="Georgette Mora">
+    <p>Soy abogada con más de 8 años de experiencia en litigación. Diplomados en Litigación Oral, Derecho Penal y Procesal Penal, y Familia e Infancia. Atiendo causas en todo Chile de manera remota, y en Arica de forma presencial.</p>
+  </div>
+</section>
 
-  <section id="areas">
-    <h2>Áreas de práctica</h2>
-    <ul>
-      <li>Derecho de Familia</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Civil</li>
-      <li>Derecho Laboral (tutela, juicio ordinario y monitorio)</li>
-    </ul>
-  </section>
+<section id="areas">
+  <h2>Áreas de práctica</h2>
+  <div class="areas">
+    <div class="box">Derecho de Familia</div>
+    <div class="box">Derecho Penal</div>
+    <div class="box">Derecho Civil</div>
+    <div class="box">Derecho Laboral (tutela, juicio ordinario y monitorio)</div>
+  </div>
+</section>
 
-  <section id="jurisprudencia">
-    <h2>Jurisprudencia comentada</h2>
-    <div id="contenedor-juris"></div>
-  </section>
+<section id="jurisprudencia">
+  <h2>Jurisprudencia comentada</h2>
+  <div id="contenedor-juris"></div>
+</section>
 
-  <section id="actualidad">
-    <h2>Actualidad Legal</h2>
-    <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley 21.760 de Adopción en Chile</a></p>
-  </section>
+<section id="actualidad">
+  <h2>Actualidad Legal</h2>
+  <p><a href="https://www.bcn.cl/leychile/navegar?idNorma=140084" target="_blank">Ley 21.760 de Adopción en Chile</a></p>
+</section>
 
-  <section id="contacto" style="background:url('morro-arica.jpg') no-repeat center/cover; color:white;">
-    <h2>Contacto</h2>
-    <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
-    <p>📧 <a href="mailto:gmora006@gmail.com" style="color:white;">gmora006@gmail.com</a></p>
-    <p>📞 <a href="tel:+56993234860" style="color:white;">+56 9 9323 4860</a></p>
-    <p>💬 <a href="https://wa.me/56993234860" target="_blank" style="color:white;">WhatsApp</a></p>
+<section id="utiles">
+  <h2>Datos útiles</h2>
+  <div class="links">
+    <a href="https://ojv.pjud.cl/kpitec-ojv-web/tramite_facil" target="_blank">Trámite Fácil – Poder Judicial</a>
+    <a href="https://agenda.minpublico.cl/denuncia/" target="_blank">Denuncia en línea – Ministerio Público</a>
+    <a href="https://si3.bcentral.cl/Indicadoressiete/secure/IndicadoresDiarios.aspx" target="_blank">Indicadores Económicos – Banco Central</a>
+  </div>
+</section>
 
-    <!-- Formulario -->
-    <form id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="consulta" />
-      <p style="display:none"><label>No completar <input name="bot-field" /></label></p>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>📍 Manuel Blanco Encalada 938, Arica, Chile</p>
+  <p>📧 <a href="mailto:gmora006@gmail.com" style="color:#fff;">gmora006@gmail.com</a></p>
+  <p>📞 <a href="tel:+56993234860" style="color:#fff;">+56 9 9323 4860</a></p>
+  <p>💬 <a href="https://wa.me/56993234860" target="_blank" style="color:#fff;">WhatsApp</a></p>
 
-      <label>Nombre:<br><input type="text" name="nombre" required></label><br><br>
-      <label>Email:<br><input type="email" name="email" required></label><br><br>
-      <label>Consulta:<br><textarea name="mensaje" rows="5" required></textarea></label><br><br>
+  <!-- Formulario -->
+  <form id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="consulta" />
+    <p style="display:none"><label>No completar<input name="bot-field"></label></p>
 
-      <div data-netlify-recaptcha="true"></div>
-      <button type="submit" class="btn">Enviar consulta</button>
-    </form>
+    <label>Nombre:<br><input type="text" name="nombre" required></label><br><br>
+    <label>Email:<br><input type="email" name="email" required></label><br><br>
+    <label>Consulta:<br><textarea name="mensaje" rows="5" required></textarea></label><br><br>
 
-    <!-- Mensaje de gracias inmediato -->
-    <div id="gracias-inmediato" style="display:none; margin-top:20px;">
-      <h3>¡Gracias! Tu consulta fue enviada.</h3>
-      <p>Responderé a la brevedad. Puedes también contactarme a <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a>.</p>
-      <a href="#inicio" class="btn">Volver al inicio</a>
-    </div>
-  </section>
+    <div data-netlify-recaptcha="true"></div>
+    <button type="submit" class="btn">Enviar consulta</button>
+  </form>
 
-  <script>
-    // Cargar jurisprudencia desde contenido.json
-    async function cargarJuris() {
-      try {
-        const r = await fetch('contenido.json', { cache: 'no-store' });
-        if (!r.ok) throw new Error('No se pudo cargar contenido.json');
-        const data = await r.json();
-        const cont = document.getElementById('contenedor-juris');
-        cont.innerHTML = '';
-        data.jurisprudencia.forEach(j => {
-          const d = document.createElement('div');
-          d.className = 'paper';
-          d.innerHTML = `
-            <h3>${j.titulo}</h3>
-            <p><strong>${j.rol}</strong> — ${j.fecha}</p>
-            <p>${j.resumen}</p>
-            <p><a href="${j.enlace_fallo}" target="_blank">Ver fallo completo</a></p>
-          `;
-          cont.appendChild(d);
-        });
-      } catch (err) {
-        document.getElementById('contenedor-juris').innerHTML = "<p>No se pudo cargar jurisprudencia.</p>";
-      }
-    }
-    cargarJuris();
+  <div id="gracias-inmediato" style="display:none; margin-top:20px;">
+    <h3>¡Gracias! Tu consulta fue enviada.</h3>
+    <a href="#inicio" class="btn">Volver al inicio</a>
+  </div>
+</section>
 
-    // Manejo de formulario AJAX
-    (function () {
-      const form = document.getElementById('form-consulta');
-      const gracias = document.getElementById('gracias-inmediato');
+<script>
+// cargar jurisprudencia
+async function cargarJuris(){
+  try{
+    const r = await fetch('contenido.json',{cache:'no-store'});
+    if(!r.ok) throw new Error('No se pudo cargar contenido.json');
+    const data = await r.json();
+    const c = document.getElementById('contenedor-juris');
+    c.innerHTML='';
+    data.jurisprudencia.forEach(j=>{
+      const d=document.createElement('div');
+      d.className='jur-card';
+      d.innerHTML=`<h3>${j.titulo}</h3><p><strong>${j.rol}</strong> — ${j.fecha}</p><p>${j.resumen}</p><p><a href="${j.enlace_fallo}" target="_blank">Ver fallo completo</a></p>`;
+      c.appendChild(d);
+    });
+  }catch(err){
+    document.getElementById('contenedor-juris').innerHTML="<p>No se pudo cargar jurisprudencia.</p>";
+  }
+}
+cargarJuris();
 
-      if (!form || !gracias) return;
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        if (!data.get('form-name')) data.set('form-name', form.getAttribute('name') || 'consulta');
-
-        try {
-          const r = await fetch('/', { method: 'POST', body: data });
-          if (!r.ok) throw new Error('Error al enviar');
-          form.style.display = 'none';
-          gracias.style.display = 'block';
-          form.reset();
-        } catch (err) {
-          alert('No pudimos enviar tu consulta en este momento. Intenta nuevamente.');
-          console.error(err);
-        }
-      });
-    })();
-  </script>
+// formulario gracias inmediato
+(function(){
+  const f=document.getElementById('form-consulta');
+  const g=document.getElementById('gracias-inmediato');
+  if(!f||!g) return;
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const d=new FormData(f);
+    if(!d.get('form-name')) d.set('form-name', f.getAttribute('name')||'consulta');
+    try{
+      const r=await fetch('/',{method:'POST',body:d});
+      if(!r.ok) throw new Error('Error');
+      f.style.display='none'; g.style.display='block'; f.reset();
+    }catch(err){alert('No pudimos enviar tu consulta. Intenta nuevamente.')}
+  });
+})();
+</script>
 
 </body>
 </html>
