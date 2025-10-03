@@ -4,8 +4,14 @@
       "titulo": "Procedimiento abreviado y control judicial del derecho",
       "rol": "Corte de Apelaciones de Temuco, Rol N° 1554-2024",
       "fecha": "2024-09-15",
-      "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado, pero lo absolvió respecto de otro, al estimar que este último no configuraba delito. La apelación se fundó en que el tribunal de primera instancia incurrió en error de derecho, al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente. La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.\n\nEl fallo enfatiza que, incluso en procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de la investigación encuadren jurídicamente en el delito imputado. La aceptación del imputado no reemplaza el control judicial sobre la tipicidad y subsunción de los hechos.\n\nEste criterio releva dos aspectos centrales:\n1. Control judicial del derecho aplicable.\n2. Recurso de apelación por error de derecho.\n\nCon ello, la Corte refuerza que el procedimiento abreviado no es una instancia de mera homologación de acuerdos, sino que exige un control jurídico efectivo de la adecuación de los hechos al derecho.",
-      "palabras_clave": ["procedimiento abreviado", "apelación", "error de derecho", "control judicial"],
+      "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado, pero lo absolvió respecto de otro, al estimar que este último no configuraba delito.\n\nLa apelación se fundó en que el tribunal de primera instancia incurrió en error de derecho, al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente. La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.\n\nEl fallo enfatiza que, incluso en procedimiento abreviado, el juez de garantía debe verificar que los hechos aceptados por el imputado y los antecedentes de la investigación encuadren jurídicamente en el delito imputado. La aceptación del imputado no reemplaza el control judicial sobre la tipicidad y subsunción de los hechos.\n\nEste criterio releva dos aspectos centrales:\n1. Control judicial del derecho aplicable: La aceptación de los hechos no exime al juez de verificar si constituyen el delito imputado.\n2. Recurso de apelación por error de derecho: Si el juez exige elementos no previstos en el tipo penal o califica erróneamente, procede apelar, aun en procedimiento abreviado.\n\nCon ello, la Corte refuerza que el procedimiento abreviado no es una mera homologación de acuerdos, sino que exige un control jurídico efectivo.",
+      "palabras_clave": [
+        "procedimiento abreviado",
+        "apelación",
+        "error de derecho",
+        "control judicial",
+        "tipicidad"
+      ],
       "enlace_fallo": "fallo-Temuco-1554-2024.pdf"
     }
   ]
