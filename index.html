@@ -245,19 +245,28 @@
       <p>✉️ <a href="mailto:gmora006@gmail.com">gmora006@gmail.com</a></p>
 
       <!-- Formulario Netlify con fallback -->
-      <form id="form-consulta" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html">
-        <input type="hidden" name="form-name" value="consulta" />
-        <p style="display:none"><label>No completar <input name="bot-field" /></label></p>
+      <form id="contactForm" name="consulta">
+  <input type="hidden" name="form-name" value="consulta">
+  
+  <label>Nombre</label>
+  <input type="text" name="nombre" required>
 
-        <div class="form-body">
-          <div><label>Nombre y apellido</label><input type="text" name="nombre" required placeholder="Tu nombre completo" /></div>
-          <div><label>Correo electrónico</label><input type="email" name="email" required placeholder="tucorreo@ejemplo.com" /></div>
-          <div><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 ...." /></div>
-          <div><label>Consulta</label><textarea name="mensaje" rows="5" required placeholder="Cuéntame brevemente tu caso"></textarea></div>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-          <button type="submit" class="btn">Enviar consulta</button>
-        </div>
-      </form>
+  <label>Asunto</label>
+  <input type="text" name="asunto" required>
+
+  <label>Mensaje</label>
+  <textarea name="mensaje" rows="5" required></textarea>
+
+  <button type="submit" id="btnEnviar">Enviar</button>
+
+  <!-- Mensaje de gracias inline -->
+  <p id="gracias" style="display:none; margin-top:10px;">
+    ✅ Gracias por tu mensaje. Te responderé a la brevedad.
+  </p>
+</form>
 
       <!-- Mensaje gracias en la misma página -->
       <div id="gracias-inmediato" class="paper" style="display:none; margin-top:16px;">
@@ -384,12 +393,57 @@ document.querySelector("form").addEventListener("submit", async (e) => {
     alert("Ocurrió un error al enviar el formulario. Intenta nuevamente.");
   }
 });
+<script>
+(function() {
+  const form = document.getElementById("contactForm");
+  const gracias = document.getElementById("gracias");
+  const btn = document.getElementById("btnEnviar");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Validación simple
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    if (!data.email || !data.nombre || !data.mensaje) {
+      alert("Por favor, completa nombre, correo y mensaje.");
+      return;
+    }
+
+    // Desactiva botón mientras envía
+    if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+
+    try {
+      // Envía al Apps Script (AUTORESPUESTA)
+      const r = await fetch("https://script.google.com/macros/s/AKfycbxavzI1-cMOyyxjbVA8pK6dK2rGNlHrtbQFf5FSTJBVaiQQHl9GFTRf0YzuUi4cXT7N/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: data.nombre,
+          email: data.email,
+          asunto: data.asunto || "Contacto desde georgettemora.cl",
+          mensaje: data.mensaje,
+          origen: "georgettemora.cl"
+        })
+      });
+
+      // No necesitamos leer cuerpo; con que responda 200 basta
+      if (!r.ok) throw new Error("Webhook respondió no-OK");
+
+      // Feedback al usuario (sin cambiar de página)
+      if (gracias) { gracias.style.display = "block"; }
+      form.reset();
+
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ No se pudo enviar. Intenta nuevamente en unos minutos.");
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "Enviar"; }
+    }
+  });
+})();
 </script>
-<form name="consulta" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="nombre" />
-  <input type="email" name="email" />
-  <input type="tel" name="telefono" />
-  <textarea name="mensaje"></textarea>
-</form>
 </body>
 </html>
