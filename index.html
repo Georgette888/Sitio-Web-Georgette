@@ -385,5 +385,11 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   }
 });
 </script>
+<form name="consulta" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nombre" />
+  <input type="email" name="email" />
+  <input type="tel" name="telefono" />
+  <textarea name="mensaje"></textarea>
+</form>
 </body>
 </html>
