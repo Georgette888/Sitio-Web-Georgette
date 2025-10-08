@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://georgettemora.cl/sitemap.xml
+Sitemap: https://www.georgettemora.cl/sitemap.xml
