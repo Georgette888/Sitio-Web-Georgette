@@ -471,8 +471,12 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   }, { passive: true });
 })();
 </script>
-  <script>
-  gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXXXX'});
+ <script>
+document.querySelector("form").addEventListener("submit", function() {
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17632550732/17632550732'
+  });
+});
 </script>
 </body>
 </html>
