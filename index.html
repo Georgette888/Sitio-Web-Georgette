@@ -410,5 +410,24 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   }, { passive: true });
 })();
 </script>
+  <script>
+(function () {
+  var form = document.forms['consulta'] || document.querySelector('form[name="consulta"]');
+  if (!form || !('sendBeacon' in navigator)) return;
+
+  form.addEventListener('submit', function () {
+    try {
+      var fd   = new FormData(form);
+      var data = new URLSearchParams(fd);
+      var blob = new Blob([data.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
+
+      // ✅ URL actualizada de tu Apps Script:
+      navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzM2_PJLavbGchNfK3Ekatkjqh1Wwh5_cMLzS9aPplHwjtysAlgybaZeW-EubE0MT_8/exec', blob);
+    } catch (e) {
+      console.warn('No se pudo enviar copia a Apps Script:', e);
+    }
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
