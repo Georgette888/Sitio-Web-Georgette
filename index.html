@@ -391,5 +391,24 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   <input type="tel" name="telefono" />
   <textarea name="mensaje"></textarea>
 </form>
+  <script>
+(function () {
+  var form = document.forms['consulta'] || document.querySelector('form[name="consulta"]');
+  if (!form || !('sendBeacon' in navigator)) return;
+
+  form.addEventListener('submit', function () {
+    try {
+      var fd   = new FormData(form);
+      var data = new URLSearchParams(fd);
+      var blob = new Blob([data.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
+
+      // 👉 Reemplaza la siguiente URL por tu nueva URL /exec
+      navigator.sendBeacon('https://script.google.com/macros/s/TU-NUEVA-URL/exec', blob);
+    } catch (e) {
+      console.warn('No se pudo enviar copia a Apps Script:', e);
+    }
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
