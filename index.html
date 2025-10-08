@@ -179,6 +179,15 @@
       #quien-soy .qs-grid{grid-template-columns:1fr}
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17632550732"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17632550732');
+</script>
 </head>
 <body>
 
@@ -461,6 +470,9 @@ document.querySelector("form").addEventListener("submit", async (e) => {
     }
   }, { passive: true });
 })();
+</script>
+  <script>
+  gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXXX/XXXXXXXXXXXX'});
 </script>
 </body>
 </html>
