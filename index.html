@@ -471,15 +471,41 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 })();
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", function() {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17632550732/IuI2CN_qtqkbEMy-7ddB'
-      });
+document.addEventListener("DOMContentLoaded", function () {
+  // Ajusta el selector si tu formulario tiene un name/id específico
+  const form = document.querySelector('form[name="contacto-netlify"], form');
+
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    // Evita doble seguimiento
+    if (form.dataset.tracked === "1") return;
+
+    // Si no hay gtag aún, no frenamos el envío
+    if (typeof gtag !== "function") return;
+
+    // Si el envío recarga la página, interrumpimos un instante para que dispare la conversión
+    e.preventDefault();
+
+    form.dataset.tracked = "1";
+    let released = false;
+
+    function releaseSubmit() {
+      if (released) return;
+      released = true;
+      // Reintenta envío nativo (o tu lógica AJAX si la tienes)
+      form.submit();
+    }
+
+    // Dispara la conversión de Google Ads (ID y etiqueta que me diste)
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17632550732/IuI2CN_qtqkbEMy-7ddB',
+      'event_callback': releaseSubmit
     });
-  }
+
+    // Fallback por si el callback no vuelve (redes lentas / bloqueadores)
+    setTimeout(releaseSubmit, 1000);
+  });
 });
 </script>
 </body>
