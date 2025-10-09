@@ -60,5 +60,23 @@
         }
       });
     </script>
+<!-- Google Ads Conversion Tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17632550732"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Configuración general de Google Ads
+  gtag('config', 'AW-17632550732');
+
+  // Evento de conversión en página de agradecimiento
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17632550732/IuI2CN_qtqkbEMy-7ddB',
+      'event_callback': function() {
+          console.log('Conversión registrada correctamente');
+      }
+  });
+</script>
   </body>
 </html>
