@@ -185,7 +185,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17632550732');
 </script>
 </head>
@@ -472,10 +471,15 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 })();
 </script>
 <script>
-document.querySelector("form").addEventListener("submit", function() {
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17632550732/IuI2CN_qtqkbEMy-7ddB'
-  });
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", function() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17632550732/IuI2CN_qtqkbEMy-7ddB'
+      });
+    });
+  }
 });
 </script>
 </body>
