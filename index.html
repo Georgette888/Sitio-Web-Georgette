@@ -178,6 +178,17 @@
       .nombre{font-size:2.8rem}
       #quien-soy .qs-grid{grid-template-columns:1fr}
     }
+    .jur-comentario {
+  background-color: #f8f9f9;
+  border-left: 4px solid #0f4f45;
+  padding: 12px 18px;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #222;
+  border-radius: 6px;
+  text-align: justify;
+}
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17632550732"></script>
@@ -348,34 +359,36 @@
       }).join('');
     }
     function render(items){
-      if(!cont) return;
-      if(!items || !items.length){
-        cont.innerHTML = '<div class="paper"><p class="muted">Aún no hay comentarios de jurisprudencia.</p></div>';
-        return;
-      }
-      items.sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
-      cont.innerHTML = items.map(it=>{
-        const titulo = it.titulo || 'Jurisprudencia';
-        const rol = it.rol ? `<p class="jur-rol">${escapeHtml(it.rol)}</p>` : '';
-        const fecha = it.fecha ? `<p class="jur-meta">Fecha: ${new Date(it.fecha).toLocaleDateString('es-CL')}</p>` : '';
-        const resumen = formatTexto(it.resumen || '');
-        const tags = Array.isArray(it.palabras_clave) ? it.palabras_clave : [];
-        const chips = tags.length ? `<div class="jur-keywords">${tags.map(t=>`<span class="chip">${escapeHtml(t)}</span>`).join('')}</div>` : '';
-        const enlace = it.enlace_fallo ? `<a class="btn-link" href="${escapeHtml(it.enlace_fallo)}" target="_blank" rel="noopener">Ver fallo</a>` : '';
+  if(!cont) return;
+  if(!items || !items.length){
+    cont.innerHTML = '<div class="paper"><p class="muted">Aún no hay comentarios de jurisprudencia.</p></div>';
+    return;
+  }
+  items.sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+  cont.innerHTML = items.map(it=>{
+    const titulo = it.titulo || 'Jurisprudencia';
+    const rol = it.rol ? `<p class="jur-rol">${escapeHtml(it.rol)}</p>` : '';
+    const fecha = it.fecha ? `<p class="jur-meta">Fecha: ${new Date(it.fecha).toLocaleDateString('es-CL')}</p>` : '';
+    const resumen = formatTexto(it.resumen || '');
+    const comentario = it.comentario ? `<div class="jur-comentario">${formatTexto(it.comentario)}</div>` : '';
+    const tags = Array.isArray(it.palabras_clave) ? it.palabras_clave : [];
+    const chips = tags.length ? `<div class="jur-keywords">${tags.map(t=>`<span class="chip">${escapeHtml(t)}</span>`).join('')}</div>` : '';
+    const enlace = it.enlace_fallo ? `<a class="btn-link" href="${escapeHtml(it.enlace_fallo)}" target="_blank" rel="noopener">Ver fallo</a>` : '';
 
-        return `
-          <article class="jur-card">
-            <h3 class="jur-title">${escapeHtml(titulo)}</h3>
-            ${rol}
-            ${fecha}
-            <div class="jur-body">
-              ${resumen}
-              ${chips}
-              ${enlace}
-            </div>
-          </article>`;
-      }).join('');
-    }
+    return `
+      <article class="jur-card">
+        <h3 class="jur-title">${escapeHtml(titulo)}</h3>
+        ${rol}
+        ${fecha}
+        <div class="jur-body">
+          ${resumen}
+          ${comentario}
+          ${chips}
+          ${enlace}
+        </div>
+      </article>`;
+  }).join('');
+}
     async function load(){
       try{
         const r = await fetch('contenido.json', { cache:'no-store' });
