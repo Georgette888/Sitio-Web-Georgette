@@ -14,5 +14,14 @@
       ],
       "enlace_fallo": "fallo-Temuco-1554-2024.pdf"
     }
+  ,    {
+      "titulo": "Invalidación administrativa y buena fe del administrado",
+      "rol": "Corte Suprema, Rol N° 19.605-2023",
+      "fecha": "2024-06-03",
+      "resumen": "La Corte Suprema acogió el recurso de casación en el fondo interpuesto por la abogada Georgette Mora Mora, corrigiendo la errónea aplicación del Código Civil en un caso donde la JUNJI pretendía la restitución de una bonificación por retiro voluntario. El fallo reafirma que los pagos derivados de actos administrativos firmes sólo pueden revisarse mediante el procedimiento de invalidación del artículo 53 de la Ley N° 19.880, y no por vías civiles. Asimismo, reconoce la buena fe del administrado y los límites que impone a la potestad de autotutela de la Administración, enfatizando la primacía del Derecho Público sobre el Derecho Común.",
+      "comentario": "Contexto: La JUNJI demandó la restitución de una bonificación de retiro voluntario alegando sobrepago por error administrativo. Los jueces de instancia acogieron la acción civil de pago de lo no debido. La Corte Suprema corrige el enfoque: el pago provino de un acto administrativo firme (resolución exenta) y no puede desconocerse sin seguir el procedimiento de invalidación del art. 53 de la Ley 19.880.\n\nMateria de fondo: (1) Error de derecho de los sentenciadores: resolvieron con normas civiles, prescindiendo del régimen de Derecho Público aplicable a un acto administrativo firme y con presunción de legalidad. (2) Invalidación (art. 53 Ley 19.880): procedimiento reglado, con audiencia del interesado y plazo fatal de dos años. La Administración no puede corregir el acto por resoluciones posteriores fuera de plazo ni sin audiencia. (3) Buena fe: el administrado recibió el pago en virtud de un acto vigente, sin conducta dolosa. La Administración debe asumir su propio error; no puede trasladar el costo al administrado cuya actuación se ampara en su buena fe.\n\nConsecuencias: Al no haberse invalidado en tiempo y forma, el acto se mantiene firme; no hay pago indebido ni procede la acción civil de cobro. La Corte acoge la casación y rechaza la demanda.\n\nClaves: Prevalece el Derecho Público sobre el Derecho Común cuando media un acto estatal. La buena fe del administrado y el principio de juridicidad limitan la autotutela administrativa.\n\nAbogada recurrente: Georgette Mora Mora.",
+      "palabras_clave": ["invalidación administrativa", "buena fe", "Ley 19.880", "casación en el fondo", "Derecho Público"],
+      "enlace_fallo": "Fallo-CS-19605-2023.pdf"
+    }
   ]
 }
