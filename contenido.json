@@ -1,31 +1,18 @@
 {
   "jurisprudencia": [
     {
-      "titulo": "Procedimiento abreviado y control judicial del derecho",
-      "rol": "Corte de Apelaciones de Temuco, Rol N° 1554-2024",
-      "fecha": "2024-09-15",
-      "resumen": "En esta causa, el Ministerio Público interpuso recurso de apelación en contra de una sentencia dictada en procedimiento abreviado, en la cual el juez de garantía condenó por uno de los hechos atribuidos al imputado, pero lo absolvió respecto de otro, al estimar que este último no configuraba delito. La apelación se fundó en que el tribunal de primera instancia incurrió en error de derecho, al imponer un requisito no contemplado en el tipo penal, lo que llevó a una absolución improcedente. La Corte de Apelaciones acogió el recurso, corrigió la calificación jurídica y dictó condena.",
-      "comentario": "El fallo reafirma un principio esencial del sistema procesal penal: aun tratándose de un procedimiento abreviado, el juez de garantía debe ejercer un control jurídico del derecho aplicable, verificando si los hechos aceptados por el imputado y los antecedentes fundantes encuadran efectivamente en el tipo penal imputado.\n\nLa Corte de Apelaciones de Temuco acogió el recurso del Ministerio Público, al constatar que el tribunal de primer grado incurrió en error de derecho, imponiendo al tipo penal un elemento no previsto por el legislador.\n\nEste precedente resulta relevante porque precisa los límites del acuerdo abreviado: la aceptación de hechos no exime al juez del deber de subsunción jurídica, reafirmando el principio de legalidad y el control de tipicidad como garantías del debido proceso.",
-      "palabras_clave": ["procedimiento abreviado", "apelación", "error de derecho", "control judicial", "tipicidad"],
-      "enlace_fallo": "docs/fallo1.pdf"
+      "titulo": "Tribunal Constitucional acoge inaplicabilidad del artículo 482 del Código del Trabajo",
+      "rol": "Tribunal Constitucional, Rol N° 9870-2020",
+      "fecha": "2021-07-29",
+      "enlace_fallo": "docs/tribunal-constitucional-rol-9870-2020.pdf",
+      "enlace_analisis": "caso-tribunal-constitucional-articulo-482.html"
     },
     {
-      "titulo": "Corte Suprema acoge recurso de casación en el fondo (Ley N° 19.880 y buena fe administrativa)",
+      "titulo": "Corte Suprema acoge recurso de casación en el fondo en causa contra la JUNJI",
       "rol": "Corte Suprema, Rol N° 19.605-2023",
-      "fecha": "2025-10-12",
-      "resumen": "La Corte Suprema acogió el recurso de casación en el fondo interpuesto por la abogada Georgette Mora Mora, en representación de una ex funcionaria pública, en un juicio donde la JUNJI pretendía la restitución de una bonificación por retiro voluntario que consideraba pagada en exceso.",
-      "comentario": "La Corte Suprema acogió el recurso de casación en el fondo interpuesto por la abogada Georgette Mora Mora, en representación de una ex funcionaria pública, en un juicio donde la Junta Nacional de Jardines Infantiles (JUNJI) pretendía la restitución de una bonificación por retiro voluntario que consideraba pagada en exceso.\n\nTanto el tribunal de primera instancia como la Corte de Apelaciones habían estimado aplicable la figura civil del pago de lo no debido, ordenando la devolución. Sin embargo, la Corte Suprema corrigió el enfoque, señalando que el caso debía resolverse conforme a las normas del Derecho Administrativo, en especial la Ley N° 19.880.\n\nEl fallo cita doctrina nacional, como Julia Poblete Vinaixa, quien destaca la naturaleza reglada y los límites temporales de la invalidación administrativa. También alude a precedentes relevantes: CS, Roles 78.938-2021, 4.437-2011 y 6.014-2009, sobre la exigencia de audiencia previa.\n\nLa sentencia consolida un criterio trascendental: los actos administrativos deben regirse por la buena fe, la protección de la confianza legítima y los límites de la potestad invalidatoria. Con ello, la Corte refuerza la seguridad jurídica y reafirma la preeminencia del Derecho Público sobre el Civil en las relaciones entre la Administración y los particulares.",
-      "palabras_clave": ["Ley 19.880", "buena fe", "acto administrativo", "casación en el fondo", "Derecho Administrativo"],
-      "enlace_fallo": "docs/fallo2.pdf"
-    },
-    {
-      "titulo": "Tribunal Constitucional acoge inaplicabilidad y permite segundo recurso de nulidad laboral",
-      "rol": "Tribunal Constitucional, Rol INA N° 9870-2020",
-      "fecha": "2020-12-15",
-      "resumen": "El Tribunal Constitucional acogió el requerimiento de inaplicabilidad deducido por la abogada Georgette Mora Mora para permitir un segundo recurso de nulidad respecto de la sentencia dictada tras una primera anulación. La interpretación literal del art. 482 CT impedía ese control y vulneraba el debido proceso y la tutela judicial efectiva.",
-      "comentario": "El Tribunal Constitucional acogió el requerimiento de inaplicabilidad deducido por la abogada Georgette Mora Mora, impugnando la aplicación del artículo 482 del Código del Trabajo, norma que impedía recurrir nuevamente de nulidad tras una primera anulación de juicio laboral.\n\nEl requerimiento se fundó en que la aplicación estricta de la norma vulneraba el derecho al debido proceso y a la tutela judicial efectiva (artículo 19 N° 3 de la Constitución), al impedir la revisión jurisdiccional de una nueva sentencia dictada tras la anulación anterior.\n\nEl Tribunal Constitucional estimó que esa interpretación restringía injustificadamente el acceso a la justicia, señalando que la prohibición de “segunda nulidad” no procede cuando se trata de una nueva sentencia autónoma, pues el control jurisdiccional debe renovarse frente a cada decisión judicial que afecte derechos fundamentales.\n\nEl fallo tiene gran relevancia práctica: al acoger el requerimiento, la Corte de Apelaciones debió admitir y acoger el segundo recurso de nulidad, declarando nuevamente la nulidad del juicio laboral. Se fija así un criterio protector del derecho al recurso y una interpretación constitucionalmente conforme de las normas procesales laborales.",
-      "palabras_clave": ["inaplicabilidad", "artículo 482 CT", "recurso de nulidad laboral", "debido proceso", "tutela judicial"],
-      "enlace_fallo": "docs/fallo3.pdf"
+      "fecha": "2024-06-03",
+      "enlace_fallo": "docs/corte-suprema-rol-19605-2023.pdf",
+      "enlace_analisis": "caso-corte-suprema-junji.html"
     }
   ]
 }

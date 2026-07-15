@@ -1,0 +1,1 @@
+Sube TODO el contenido de esta carpeta a la raíz del repositorio. No subas el ZIP sin descomprimir. index.html debe quedar en la raíz. Las carpetas img y docs deben subirse completas.
